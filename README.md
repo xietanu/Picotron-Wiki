@@ -1,10 +1,10 @@
 # Picotron Wiki
 
-A likely futile attempt to support the documentation of Picotron.
+A likely futile attempt to support the documentation of [Picotron](https://www.lexaloffle.com/picotron.php).
 
-[Lexaloffle Page](https://www.lexaloffle.com/picotron.php)
+## Information
 
-[MD Page](information/whatis.md)
+Information on Picotron can be found [here](information/whatis.md)
 
 ## System documentation
 
