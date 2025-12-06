@@ -5,7 +5,8 @@
 `config` allows you to edit picotrons system settings (`/appdata/system/settings.pod`)
 
 Source: [source.lua](source.lua)
-## arguments:
+
+## Arguments
 
 ### battery_saver `boolean`
 

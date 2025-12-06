@@ -6,7 +6,9 @@
 
 Source: [source.lua](source.lua)
 
-## [options]:
+## Arguments
+
+### [options]
 Optional arguments for the command
 
 ### `-f`

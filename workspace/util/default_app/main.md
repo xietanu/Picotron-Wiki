@@ -4,11 +4,15 @@
 
 Sets the default programs for extensions, edits `"/appdata/system/default_apps.pod"`
 
-### ext
+Source: [source.lua](source.lua)
+
+### Arguments
+
+#### ext
 
 The extension you would like to set the default app for, e.g: `lua`
 
-### [path_to_program]
+#### [path_to_program]
 
 The path to the program that should handle your file.
 
