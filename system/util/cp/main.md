@@ -21,11 +21,11 @@ no clobber, skips copying files if a file with the same name already exists in `
 
 ## src
 
-The source file
+The path to the source file/folder
 
 ## dest
 
-Path to a folder
+Path to a folder/file to replace
 
 Overwrites the folder with option `-f`
 
