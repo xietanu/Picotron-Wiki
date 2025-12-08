@@ -1,8 +1,8 @@
-# sspr(sprite,x,y,sw,sh,dx,dy,[dw],[dh],[flip_x])
+# sspr(sprite,[x],[y],[flip_x],[flip_y])
 
 ## Overview
 
-`sspr` draws a sprite, similar to `spr()`, but allows you to also resize the sprite.
+`sspr` draws a sprite, similar to [`spr()`](/functions/spr/main.md), but allows you to also resize the sprite.
 
 This is scaling sprites, e.g: zoom
 
@@ -33,6 +33,10 @@ Optional, defaults to the proportions of the sprite
 The new width & height of `sprite`.
 
 `sprite` will be drawn rescaled to match the proportions of `[dx],[dy]`.
+
+### [flip_x],[flip_y]
+
+Flips the sprite on their respective axis
 
 ## Examples
 
