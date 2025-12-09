@@ -19,6 +19,14 @@ Information on Picotron can be found [here](information/whatis.md)
 
 ## System documentation
 
-System documentation can be found [here](system/)
+System documentation can be found [here](system/readme.md)
 
 Documenting every section of `/system`
+
+## Picotron API
+
+Documentation on the Picotron API can be found [here](functions/readme.md)
+
+## Guides
+
+Guides for Picotron can be found [here](guides/readme.md)
