@@ -27,1625 +27,6 @@
   },
   {
     "name": "main.md",
-    "path": "/functions/camera/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "camera(x,y)",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "camera() allows for you to set the relative 0,0 of all graphical operations.",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "x",
-                "content": [
-                  "",
-                  "x coordinate to set",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "y",
-                "content": [
-                  "",
-                  "y coordinate to set",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Examples",
-            "content": [
-              "",
-              "Sets a player object to be in the middle of the screen",
-              "```lua",
-              "",
-              "--player object",
-              "player={",
-              "    x=0,",
-              "    y=0",
-              "}",
-              "",
-              "--set the player to be in the middle of the screen",
-              "",
-              "screen={",
-              "    width=480,",
-              "    height=270",
-              "}",
-              "",
-              "function _update()",
-              "    camera={",
-              "        x=player.x-(screen.width/2),",
-              "        y=player.y-(screen.height/2),",
-              "    }",
-              "",
-              "    camera(x,y)",
-              "end",
-              "```",
-              "",
-              "This can be paired with `mid()` to clamp it to the viewable area, e.g: the map.",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "Returns the previous camera's x,y positions."
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/cp/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "cp(src_p, dest_p)",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`cp` copies the file or folder from `src_p` to the location `dest_p`.",
-              "",
-              "If `dest_p` is a file, it overwrites the file.",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "src_p",
-            "content": [
-              "",
-              "The path to the source file/folder",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "dest_p",
-            "content": [
-              "",
-              "Path to a folder/file to replace",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "If src is nil > \"could not resolve source path\"",
-              "If dest is nil > \"could not resolve destination path\"",
-              "If using a protocol (e.g: `bbs://`) > \"can not write to {protocol you attempted}://\"",
-              "",
-              "Other failures:",
-              "    fstat of the source fails > \"could not read source location\"",
-              "    copying a folder inside of itself > \"can not copy inside self\"",
-              "    copying `/` inside of itself > \"can not copy /\"",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Future",
-            "content": [
-              "",
-              "Ability to write to protocols"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/create_process/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "create_process(prog_name_p, [env_patch])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`create_process` runs a process, `prog_name_p`, with optional env data patched in through `[env_patch]`;",
-              "",
-              "This can be done to package multiple pieces of software into one, alongside allowing for multi-process software.",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "prog_name_p",
-                "content": [
-                  "",
-                  "The filepath to the file of which to create a process from.",
-                  "",
-                  "This is typically a picotron cartridge or a `.lua` file.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[env_path]",
-                "content": [
-                  "",
-                  "Optional argument",
-                  "",
-                  "This allows you to patch environmental information to the process in the form of a table.",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Examples",
-            "content": [
-              "",
-              "This creates a process, running `app.p64` where `app.p64` prints the text that was fed into it.",
-              "",
-              "When this process runs `env()`, it contains the argument `text`.",
-              "",
-              "```lua",
-              "create_process(\"app.p64\",{text=\"Hi!\"})",
-              "```",
-              "",
-              "Within `app.p64`:",
-              "",
-              "```lua",
-              "print(env().text);",
-              "```",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Sandboxed Nature",
-            "content": [
-              "",
-              "Sandboxed apps can only create processes of:",
-              "",
-              "* /system/apps/filenav.p64",
-              "* /system/apps/notebook.p64",
-              "* /system/util/open.lua",
-              "* /system/util/ls.lua",
-              "* files stored within the sandboxed app",
-              "* apps from `bbs://`",
-              "",
-              "All apps run through this are also sandboxed",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This function returns the process id of the created process & an error string.",
-              "",
-              "If the process created is a process that they cannot create > nil, \"sandboxed process can not create_process()\"",
-              "",
-              "If the process creates more than 20 processes in a single minute > return nil, \"sandboxed process can not create_process() more than 20 / minute\""
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/get_spr/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "get_spr(index)",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`get_spr` returns the sprite information of the sprite at `index`.",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "index",
-                "content": [
-                  "",
-                  "The sprite index of which you want the information",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This returns the `userdata u8` graphical data of the sprite at sprite `index`."
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/map/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "map(ud, [b], [...])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`map` draws a map, either through picotron system or legacy pico-8 method",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Picotron System",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "ud",
-                "content": [
-                  "",
-                  "The map data in the datatype `userdata`",
-                  "",
-                  "If `ud` is not in the datatype `userdata`, it follows the legacy Pico-8 format.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[b]",
-                "content": [
-                  "",
-                  "Unknown",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[...]",
-                "content": [
-                  "",
-                  "Extra arguments that are sent through to the system _draw_map function.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "> Returns",
-                "content": [
-                  "",
-                  "This function does not return anything",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Legacy Pico-8 System",
-            "content": [
-              "",
-              "The legacy Pico-8 system is added for legacy support and an alternative way to use maps.",
-              "",
-              "Legacy Pico-8 function",
-              "",
-              "`map(celx, cely, sx, sy, celw, celh, [layer])`",
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "celx",
-                "content": [
-                  "",
-                  "The column location of the map cell in the upper left corner of the region to draw, where 0 is the leftmost column.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "cely",
-                "content": [
-                  "",
-                  "The row location of the map cell in the upper left corner of the region to draw, where 0 is the topmost row.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "sx",
-                "content": [
-                  "",
-                  "The x coordinate of the screen to place the upper left corner.",
-                  "",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "sy",
-                "content": [
-                  "",
-                  "The y coordinate of the screen to place the upper left corner.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "celw",
-                "content": [
-                  "",
-                  "The number of map cells wide in the region to draw.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "celh",
-                "content": [
-                  "",
-                  "The number of map cells tall in the region to draw.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[layer]",
-                "content": [
-                  "",
-                  "If specified, only draw sprites that have flags set for every bit in this value (a bitfield). The default is 0 (draw all sprites).",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This function does not return anything"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/memmap/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "memmap(ud,addr,[offset],[len])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`memmap` allows you to write a 4k (`0x1000`) userdata, `ud` to an address, `addr` in memory",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "ud",
-                "content": [
-                  "",
-                  "The userdata that is mapped into memory",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "addr",
-                "content": [
-                  "",
-                  "The address to map the userdata into",
-                  "",
-                  "Mapping to address `0x100000` automatically unmaps the loaded map data & replacing the loaded map in memory with `ud`.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[offset]",
-                "content": [
-                  "",
-                  "Unknown",
-                  "",
-                  "> Presuming that it's the offset in either memory in the userdata",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[len]",
-                "content": [
-                  "",
-                  "Unknown",
-                  "",
-                  "> Presuming that it's the length of the userdata"
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "Returns the inputted `ud`",
-              "",
-              "Allows things such as:",
-              "",
-              "```",
-              "pfxdat = fetch(\"tune.sfx\"):memmap(0x30000)",
-              "```"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/mkdir/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "mkdir(p)",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`mkdir` creates a new directory (empty folder) at the path `p`",
-              "",
-              "This does not support protocols (e.g: bbs://)",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "p",
-                "content": [
-                  "",
-                  "The path for the new directory",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This function returns an error in the form of a string if the function fails.",
-              "Otherwise, returns nil",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Future",
-            "content": [
-              "",
-              "Ability to write to protocols"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/mv/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "mv(src_p, dest_p)",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`mv` moves the file or folder from `src_p` to `dest_p`.",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "src_p",
-            "content": [
-              "",
-              "The path to the source file/folder",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "dest_p",
-            "content": [
-              "",
-              "Path to a folder to put the source file/folder into",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "If src is nil > \"could not resolve source path\"",
-              "If dest is nil > \"could not resolve destination path\"",
-              "If using a protocol (e.g: `bbs://`) > \"can not write to {protocol you attempted}://\"",
-              "",
-              "More returns are for other failures, unknown.",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Future",
-            "content": [
-              "",
-              "Ability to write to protocols"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/pid/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "pid()",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`pid` returns the process id of the process calling it.",
-              "",
-              "This is useful for communication between processes",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Usage Example",
-            "content": [
-              "",
-              "Using the filenav with the intention to save a file.",
-              "",
-              "```lua",
-              "create_process(\"/system/apps/filenav.p64\", {",
-              "    open_with = pid(), --shows the id of the process that opened it",
-              "    intention = \"save_file_as\",",
-              "    path=\"/desktop/\",",
-              "    use_ext=\"spr\",",
-              "    window_attribs = {",
-              "        workspace=\"current\",",
-              "        autoclose=true",
-              "    }",
-              "})",
-              "```",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "The process ID"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "readme.md",
-    "path": "/functions/readme.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "functions",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "Documentation on all of functions in the Picotron API",
-              "",
-              "[`set_spr`](/functions/set_spr/main.md)",
-              "",
-              "[`spr`](/functions/spr/main.md)",
-              "",
-              "[`sspr`](/functions/sspr/main.md)",
-              "",
-              "[`store`](/functions/store/main.md)",
-              "",
-              "[`store_metadata`](/functions/store_metadata/main.md)",
-              "",
-              "[`unmap`](/functions/unmap/main.md)",
-              "",
-              "[`memmap`](/functions/memmap/main.md)",
-              "",
-              "[`mkdir`](/functions/mkdir/main.md)",
-              "",
-              "[`mv`](/functions/mv/main.md)",
-              "",
-              "[`rm`](/functions/rm/main.md)",
-              "",
-              "[`cp`](/functions/cp/main.md)",
-              "",
-              "[`pid`](/functions/pid/main.md)",
-              "",
-              "[`send_message`](/functions/send_message/main.md)",
-              "",
-              "[`create_process`](/functions/create_process/main.md)",
-              "",
-              "[`camera`](/functions/camera/main.md)",
-              "",
-              "[`map`](/functions/map/main.md)",
-              "",
-              ""
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/rm/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "rm(f0)",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`rm` deletes `f0`, a file or directory (including all of the directory's contents).",
-              "",
-              "Attempting to delete `/desktop/host` just causes the Host OS to unmount, rather than deleting the folder and contents.",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "f0",
-                "content": [
-                  "",
-                  "The path to the file or directory to delete",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "Returns something, unknown what it returns"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/send_message/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "send_message(proc_id, msg, [response])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`send_message` allows you to communicate with other processes.",
-              "",
-              "This is useful for communication between processes",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "proc_id",
-                "content": [
-                  "",
-                  "The process ID of which to send the message to",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "msg",
-                "content": [
-                  "",
-                  "The message, a table, to send to the process `proc_id`.",
-                  "",
-                  "A message must have the key `event`, being a string that is sent to the process as its event.",
-                  "",
-                  "This can be any arbritrary string - handled by the process that receives it.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[response]",
-                "content": [
-                  "",
-                  "Optional argument",
-                  "",
-                  "By setting `[response]` to `true`, it causes the function to stall the entire program until it receives a response from the other process.",
-                  "",
-                  "Note that blocking in this way can be quite slow - it is intended to be used in situations where it is acceptable to skip a frame or two while waiting for a reply.",
-                  "",
-                  "When `[response]` is a function, the event handler of the receiving process can reply with another message that is handled by that function.",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Examples",
-            "content": [
-              "",
-              "> From the Picotron Manual",
-              "",
-              "When reply is true, send_message blocks until the process responds with a reply. For example, paste the following in to terminal to set up a headless process that responds to \"get_id\" messages:",
-              "",
-              "```lua",
-              "store(\"/ram/get_id.lua\", [[",
-              "    id = 1",
-              "    function _update() end",
-              "    on_event(\"get_id\", function() ",
-              "        id += 1",
-              "        return {id = id} ",
-              "    end)",
-              "]])",
-              "pid2 = create_process(\"/ram/get_id.lua\")",
-              "```",
-              "",
-              "A unique id can be fetched from this process with:",
-              "",
-              "```lua",
-              "?send_message(pid2, {event = \"get_id\"}, true).id",
-              "```",
-              "",
-              "The true argument for `[response]` causes the message to be blocking - waiting for the response from `pid2`, being the data including the `id` it requests.",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Sandboxed Nature",
-            "content": [
-              "",
-              "Sandboxed processes can send messages to:",
-              "",
-              "* itself",
-              "* /system/",
-              "* wm",
-              "",
-              "alongside sending certain events:",
-              "",
-              "* \"set_palette\"",
-              "* \"broadcast\" *if* it has a contained event of `set_palette`",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This function returns nothing, unless you have a response, where it instead returns the response of the event."
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/set_spr/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "set_spr(index, s, [flags_val])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`set_spr` adds or removes a sprite at a set index.",
-              "",
-              "Sprite flags are stored at 0xc000 (16k)",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "index",
-                "content": [
-                  "",
-                  "The index of the sprite you're modifying in the spritesheet.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "s",
-                "content": [
-                  "",
-                  "The sprite data to set in sprite `index`, form of a `userdata u8`.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[flags_val]",
-                "content": [
-                  "",
-                  "The flag information to be set for sprite `index`, defaults to 0",
-                  "",
-                  "Poked into `0xc000`, offset by `index &= 0x3fff`",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This function does not return anything"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/spr/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "spr(sprite,[x],[y],[flip_x],[flip_y])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`sspr` draws a sprite, similar to [`spr()`](/functions/spr/main.md), but allows you to also resize the sprite.",
-              "",
-              "This is scaling sprites, e.g: zoom",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "sprite",
-                "content": [
-                  "",
-                  "Sprite index from the spritesheet, or a `userdata u8` piece of data - this is what is drawn.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "x,y",
-                "content": [
-                  "",
-                  "The coordinates of where to draw the sprite",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[flip_x],[flip_y]",
-                "content": [
-                  "",
-                  "Flips the sprite on their respective axis",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Examples",
-            "content": [
-              "",
-              "Draw a sprite from sprite index 0 to position (0,0)",
-              "```lua",
-              "spr(0,0,0)",
-              "```",
-              "",
-              "Draw a sprite from a `userdata u8` to position (0,0)",
-              "```lua",
-              "sp=--[[pod_type=\"gfx\"]]unpod(\"b64:bHo0ALEAAAC4AQAA_gFweHUAQyBAQATw9jPwHDOwBQCvcDM3M-AUMzEzMAkACEuz8BSzBQCPcDNw8wxwM7AHAAGN8ABz_wxz8AQGADAAM-t3AAkFAO9wMzt-IPsMfjszMDM7fgkABo8_dz77BD53PgsAEz9_u34KABBf-gS7-gQIAAjvPxp_Nz67Pjd_PTMwMz0MAA6fcDN9frt_fTOwCAAEYPAAc7s_uwwBDwcAAFQM8wzwFAQAUPMM8P8D\")",
-              "",
-              "spr(sp,0,0)",
-              "```",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "Unknown"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/sspr/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "sspr(sprite,[x],[y],[flip_x],[flip_y])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`sspr` draws a sprite, similar to [`spr()`](/functions/spr/main.md), but allows you to also resize the sprite.",
-              "",
-              "This is scaling sprites, e.g: zoom",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "sprite",
-                "content": [
-                  "",
-                  "Sprite index from the spritesheet, or a `userdata u8` piece of data - this is what is drawn.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "x,y",
-                "content": [
-                  "",
-                  "The coordinates of what is treated as the top left of `sprite`, allowing you to add offsets",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "sw,sh",
-                "content": [
-                  "",
-                  "The width & height of `sprite` - allows you to crop the sprite.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "dx,dy",
-                "content": [
-                  "",
-                  "Where you want the sprite to be drawn on the screen",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[dw],[dh]",
-                "content": [
-                  "",
-                  "Optional, defaults to the proportions of the sprite",
-                  "",
-                  "The new width & height of `sprite`.",
-                  "",
-                  "`sprite` will be drawn rescaled to match the proportions of `[dx],[dy]`.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[flip_x],[flip_y]",
-                "content": [
-                  "",
-                  "Flips the sprite on their respective axis",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Examples",
-            "content": [
-              "",
-              "```lua",
-              "local mapUD=userdata(\"u8\",480,270)",
-              "",
-              "set_draw_target(mapUD) --all graphical operations now go to the map userdata",
-              "map() --draw map",
-              "set_draw_target() --return graphical operations to the window/screen",
-              "",
-              "--mapwidth,mapheight is the proportions of the map",
-              "--x,y is where to draw the map",
-              "",
-              "sspr(mapUD,0,0,mapwidth,mapheight,x,y,mapwidth*2,mapheight*2)",
-              "```",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "Unknown"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/store/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "store(location, obj, [metadata])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`store` allows you to store files, typically used for save files by storing tables in the `pod` file format.",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "location",
-                "content": [
-                  "",
-                  "The location you want to store a file at, e.g: `/appdata/mypod.pod`",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "obj",
-                "content": [
-                  "",
-                  "The file data, e.g: a table for a `.pod` file.",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[metadata]",
-                "content": [
-                  "",
-                  "Optional metadata of the file, e.g: `{mymetadatavalue=\"grapes\"}`",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This function does not return anything"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/store_metadata/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "store_metadata(filename,meta)",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "`store_metadata` stores metadata, `meta`, at a file or directory, `filename`, merging with the original metadata.",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "filename",
-                "content": [
-                  "",
-                  "The path to the file or directory to store metadata in",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "meta",
-                "content": [
-                  "",
-                  "The metadata to store in the file or directory",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This function does not return anything",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Possible Future",
-            "content": [
-              "",
-              "Ability to remove metadata items from the pre-existing metadata"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/functions/unmap/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "unmap(ud,addr,[len])",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "this is the only way to release mapped userdata for collection",
-              "",
-              "e.g. memmapping a userdata over an old one is not sufficient to free it for collection",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "ud",
-                "content": [
-                  "",
-                  "The userdata that is unmapped from memory",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "addr",
-                "content": [
-                  "",
-                  "The address to unmap the userdata from",
-                  ""
-                ],
-                "children": []
-              },
-              {
-                "level": 3,
-                "text": "[len]",
-                "content": [
-                  "",
-                  "Length of the userdata to unmap, defaults to the full userdata length",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [
-              "",
-              "This function does not return anything"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
     "path": "/guides/grid_based_game/main.md",
     "data": [
       {
@@ -1915,6 +296,73 @@
     ]
   },
   {
+    "name": "main.md",
+    "path": "/guides/host_os_terminal/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "Using a Host OS terminal in Picotron",
+        "content": [
+          "",
+          "This is a short guide designed to show you how to setup an environment to use [`printh`](/picotron_api/functions/printh/main.md) for debugging or logging.",
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Windows:",
+            "content": [],
+            "children": [
+              {
+                "level": 3,
+                "text": "Step 1. Getting the path of your Picotron executable",
+                "content": [
+                  "",
+                  "This is typically found at `C:\\Program Files (x86)\\Picotron\\picotron.exe` if you installed it, otherwise in the extracted folder if you are using the portable version of Picotron.",
+                  "",
+                  "If it is not in this location, you can:",
+                  "* open the start menu",
+                  "* type Picotron",
+                  "* press open file location",
+                  "* click Picotron's executable",
+                  "* press `CTRL+SHIFT+C` to copy the path",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Step 2. Creating the batch file",
+            "content": [
+              "",
+              "Now that you have the path, all you have to do is open any text editor and paste in the path, e.g:",
+              "`\"C:\\Program Files (x86)\\Picotron\\picotron.exe\"`",
+              "",
+              "You must ensure that there are double quotes `\"` surrounding the path as seen above.",
+              "",
+              "Save this file with the `.bat` extension, e.g: `picotron.bat`.",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Step 3. Running the batch file",
+            "content": [
+              "",
+              "Now once you run this batch file (the same as you would an exe), it will open up a terminal alongside Picotron.",
+              "",
+              "When anything is printed to the terminal with `printh`, it will now appear in your host OS terminal."
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "readme.md",
     "path": "/guides/readme.md",
     "data": [
@@ -1932,7 +380,9 @@
               "",
               "Guides for development in Picotron",
               "",
-              "[Writing a simple grid-based game](/guides/grid_based_game/main.md)"
+              "[Writing a simple grid-based game](/guides/grid_based_game/main.md)",
+              "",
+              "[Using a Host OS terminal with Picotron](/guides/host_os_terminal/main.md)"
             ],
             "children": []
           }
@@ -2321,6 +771,1900 @@
           "[Roadmap](roadmap.md)"
         ],
         "children": []
+      }
+    ]
+  },
+  {
+    "name": "main_to_do.md",
+    "path": "/main_to_do.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "to do",
+        "content": [
+          "",
+          "this is features that are more important/requested to be documented",
+          "",
+          "* userdata",
+          "* gui"
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/camera/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "camera(x,y)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "camera() allows for you to set the relative 0,0 of all graphical operations.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "x",
+                "content": [
+                  "",
+                  "x coordinate to set",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "y",
+                "content": [
+                  "",
+                  "y coordinate to set",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Examples",
+            "content": [
+              "",
+              "Sets a player object to be in the middle of the screen",
+              "```lua",
+              "",
+              "--player object",
+              "player={",
+              "    x=0,",
+              "    y=0",
+              "}",
+              "",
+              "--set the player to be in the middle of the screen",
+              "",
+              "screen={",
+              "    width=480,",
+              "    height=270",
+              "}",
+              "",
+              "function _update()",
+              "    camera={",
+              "        x=player.x-(screen.width/2),",
+              "        y=player.y-(screen.height/2),",
+              "    }",
+              "",
+              "    camera(x,y)",
+              "end",
+              "```",
+              "",
+              "This can be paired with `mid()` to clamp it to the viewable area, e.g: the map.",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "Returns the previous camera's x,y positions."
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/cp/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "cp(src_p, dest_p)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`cp` copies the file or folder from `src_p` to the location `dest_p`.",
+              "",
+              "If `dest_p` is a file, it overwrites the file.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "src_p",
+            "content": [
+              "",
+              "The path to the source file/folder",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "dest_p",
+            "content": [
+              "",
+              "Path to a folder/file to replace",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "If src is nil > \"could not resolve source path\"",
+              "If dest is nil > \"could not resolve destination path\"",
+              "If using a protocol (e.g: `bbs://`) > \"can not write to {protocol you attempted}://\"",
+              "",
+              "Other failures:",
+              "    fstat of the source fails > \"could not read source location\"",
+              "    copying a folder inside of itself > \"can not copy inside self\"",
+              "    copying `/` inside of itself > \"can not copy /\"",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Future",
+            "content": [
+              "",
+              "Ability to write to protocols"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/create_process/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "create_process(prog_name_p, [env_patch])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`create_process` runs a process, `prog_name_p`, with optional env data patched in through `[env_patch]`;",
+              "",
+              "This can be done to package multiple pieces of software into one, alongside allowing for multi-process software.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "prog_name_p",
+                "content": [
+                  "",
+                  "The filepath to the file of which to create a process from.",
+                  "",
+                  "This is typically a picotron cartridge or a `.lua` file.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[env_path]",
+                "content": [
+                  "",
+                  "Optional argument",
+                  "",
+                  "This allows you to patch environmental information to the process in the form of a table.",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Examples",
+            "content": [
+              "",
+              "This creates a process, running `app.p64` where `app.p64` prints the text that was fed into it.",
+              "",
+              "When this process runs `env()`, it contains the argument `text`.",
+              "",
+              "```lua",
+              "create_process(\"app.p64\",{text=\"Hi!\"})",
+              "```",
+              "",
+              "Within `app.p64`:",
+              "",
+              "```lua",
+              "print(env().text);",
+              "```",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Sandboxed Nature",
+            "content": [
+              "",
+              "Sandboxed apps can only create processes of:",
+              "",
+              "* /system/apps/filenav.p64",
+              "* /system/apps/notebook.p64",
+              "* /system/util/open.lua",
+              "* /system/util/ls.lua",
+              "* files stored within the sandboxed app",
+              "* apps from `bbs://`",
+              "",
+              "All apps run through this are also sandboxed",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This function returns the process id of the created process & an error string.",
+              "",
+              "If the process created is a process that they cannot create > nil, \"sandboxed process can not create_process()\"",
+              "",
+              "If the process creates more than 20 processes in a single minute > return nil, \"sandboxed process can not create_process() more than 20 / minute\""
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/get_spr/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "get_spr(index)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`get_spr` returns the sprite information of the sprite at `index`.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "index",
+                "content": [
+                  "",
+                  "The sprite index of which you want the information",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This returns the `userdata u8` graphical data of the sprite at sprite `index`."
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/include/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "include(filename)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "The `include` function allows you to attach scripting files to your program (`lua`).",
+              "",
+              "If the source has a syntax error, it reports errors to the console, listing the syntax error and location",
+              "If the source file is not a text file, it notifies that it cannot include it.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "filename",
+                "content": [
+                  "",
+                  "The relative or absolute path to the file.",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Examples",
+            "content": [
+              "",
+              "Example `module.lua` which returns a version number and creates two helper functions for drawing sprites.",
+              "",
+              "```lua",
+              "function sprFlippedX(s,x,y)",
+              "    spr(s,x,y,true)",
+              "end",
+              "",
+              "function sprFlippedY(s,x,y)",
+              "    spr(s,x,y,nil,true)",
+              "end",
+              "",
+              "return \"1.0\"",
+              "```",
+              "",
+              "Cartridge that includes this",
+              "",
+              "```lua",
+              "local version=include(\"module.lua\")",
+              "if (version != latestVersion){",
+              "    notify(\"module.lua is not the running the latest version.\")",
+              "}",
+              "",
+              "sprFlippedX(1,0,0)",
+              "```",
+              "",
+              "This warns you if the version is not the latest version (e.g: taken from a webpage), then proceeds to draw sprite 1 at 0,0 using the helper function.",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "Returns `func()`, so that the imported file can return something - this also runs the file with `func()`",
+              "256 file limit > `nil`",
+              "Can't fetch the file > `nil`",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Limitations",
+            "content": [
+              "",
+              "There is an arbritrary limit where only 256 of the same files can be included."
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/map/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "map(ud, [b], [...])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`map` draws a map, either through picotron system or legacy pico-8 method",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Picotron System",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "ud",
+                "content": [
+                  "",
+                  "The map data in the datatype `userdata`",
+                  "",
+                  "If `ud` is not in the datatype `userdata`, it follows the legacy Pico-8 format.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[b]",
+                "content": [
+                  "",
+                  "Unknown",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[...]",
+                "content": [
+                  "",
+                  "Extra arguments that are sent through to the system _draw_map function.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "> Returns",
+                "content": [
+                  "",
+                  "This function does not return anything",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Legacy Pico-8 System",
+            "content": [
+              "",
+              "The legacy Pico-8 system is added for legacy support and an alternative way to use maps.",
+              "",
+              "Legacy Pico-8 function",
+              "",
+              "`map(celx, cely, sx, sy, celw, celh, [layer])`",
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "celx",
+                "content": [
+                  "",
+                  "The column location of the map cell in the upper left corner of the region to draw, where 0 is the leftmost column.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "cely",
+                "content": [
+                  "",
+                  "The row location of the map cell in the upper left corner of the region to draw, where 0 is the topmost row.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "sx",
+                "content": [
+                  "",
+                  "The x coordinate of the screen to place the upper left corner.",
+                  "",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "sy",
+                "content": [
+                  "",
+                  "The y coordinate of the screen to place the upper left corner.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "celw",
+                "content": [
+                  "",
+                  "The number of map cells wide in the region to draw.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "celh",
+                "content": [
+                  "",
+                  "The number of map cells tall in the region to draw.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[layer]",
+                "content": [
+                  "",
+                  "If specified, only draw sprites that have flags set for every bit in this value (a bitfield). The default is 0 (draw all sprites).",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This function does not return anything"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/memmap/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "memmap(ud,addr,[offset],[len])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`memmap` allows you to write a 4k (`0x1000`) userdata, `ud` to an address, `addr` in memory",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "ud",
+                "content": [
+                  "",
+                  "The userdata that is mapped into memory",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "addr",
+                "content": [
+                  "",
+                  "The address to map the userdata into",
+                  "",
+                  "Mapping to address `0x100000` automatically unmaps the loaded map data & replacing the loaded map in memory with `ud`.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[offset]",
+                "content": [
+                  "",
+                  "Unknown",
+                  "",
+                  "> Presuming that it's the offset in either memory in the userdata",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[len]",
+                "content": [
+                  "",
+                  "Unknown",
+                  "",
+                  "> Presuming that it's the length of the userdata"
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "Returns the inputted `ud`",
+              "",
+              "Allows things such as:",
+              "",
+              "```",
+              "pfxdat = fetch(\"tune.sfx\"):memmap(0x30000)",
+              "```"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/mkdir/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "mkdir(p)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`mkdir` creates a new directory (empty folder) at the path `p`",
+              "",
+              "This does not support protocols (e.g: bbs://)",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "p",
+                "content": [
+                  "",
+                  "The path for the new directory",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This function returns an error in the form of a string if the function fails.",
+              "Otherwise, returns nil",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Future",
+            "content": [
+              "",
+              "Ability to write to protocols"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/mv/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "mv(src_p, dest_p)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`mv` moves the file or folder from `src_p` to `dest_p`.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "src_p",
+            "content": [
+              "",
+              "The path to the source file/folder",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "dest_p",
+            "content": [
+              "",
+              "Path to a folder to put the source file/folder into",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "If src is nil > \"could not resolve source path\"",
+              "If dest is nil > \"could not resolve destination path\"",
+              "If using a protocol (e.g: `bbs://`) > \"can not write to {protocol you attempted}://\"",
+              "",
+              "More returns are for other failures, unknown.",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Future",
+            "content": [
+              "",
+              "Ability to write to protocols"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/pid/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "pid()",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`pid` returns the process id of the process calling it.",
+              "",
+              "This is useful for communication between processes",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Usage Example",
+            "content": [
+              "",
+              "Using the filenav with the intention to save a file.",
+              "",
+              "```lua",
+              "create_process(\"/system/apps/filenav.p64\", {",
+              "    open_with = pid(), --shows the id of the process that opened it",
+              "    intention = \"save_file_as\",",
+              "    path=\"/desktop/\",",
+              "    use_ext=\"spr\",",
+              "    window_attribs = {",
+              "        workspace=\"current\",",
+              "        autoclose=true",
+              "    }",
+              "})",
+              "```",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "The process ID"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/printh/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "printh(str)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "printh() allows for you to print text to the Host OS Terminal.",
+              "",
+              "This allows for you to do more informative debugging of your program, alongside allowing stuff like logs in your program.",
+              "",
+              "[Setting up a Host OS terminal for Picotron](/guides/host_os_terminal/main.md)",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "str",
+                "content": [
+                  "",
+                  "String to print",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Examples",
+            "content": [
+              "",
+              "Prints the CPU usage every time the frame updates",
+              "```lua",
+              "function _update()",
+              "    printh(stat(1)*100 ..\"% cpu usage\")",
+              "end",
+              "```",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "Unknown"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "readme.md",
+    "path": "/picotron_api/functions/readme.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "Picotron API > Functions",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Documentation on all of the functions in the Picotron API",
+              "",
+              "[`set_spr`](set_spr/main.md)",
+              "",
+              "[`spr`](spr/main.md)",
+              "",
+              "[`sspr`](sspr/main.md)",
+              "",
+              "[`store`](store/main.md)",
+              "",
+              "[`store_metadata`](store_metadata/main.md)",
+              "",
+              "[`unmap`](unmap/main.md)",
+              "",
+              "[`memmap`](memmap/main.md)",
+              "",
+              "[`mkdir`](mkdir/main.md)",
+              "",
+              "[`mv`](mv/main.md)",
+              "",
+              "[`rm`](rm/main.md)",
+              "",
+              "[`cp`](cp/main.md)",
+              "",
+              "[`pid`](pid/main.md)",
+              "",
+              "[`send_message`](send_message/main.md)",
+              "",
+              "[`create_process`](create_process/main.md)",
+              "",
+              "[`camera`](camera/main.md)",
+              "",
+              "[`map`](map/main.md)",
+              "",
+              "[`printh`](printh/main.md)",
+              "",
+              "[`include`](include/main.md)"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/rm/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "rm(f0)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`rm` deletes `f0`, a file or directory (including all of the directory's contents).",
+              "",
+              "Attempting to delete `/desktop/host` just causes the Host OS to unmount, rather than deleting the folder and contents.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "f0",
+                "content": [
+                  "",
+                  "The path to the file or directory to delete",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "Returns something, unknown what it returns"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/send_message/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "send_message(proc_id, msg, [response])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`send_message` allows you to communicate with other processes.",
+              "",
+              "This is useful for communication between processes",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "proc_id",
+                "content": [
+                  "",
+                  "The process ID of which to send the message to",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "msg",
+                "content": [
+                  "",
+                  "The message, a table, to send to the process `proc_id`.",
+                  "",
+                  "A message must have the key `event`, being a string that is sent to the process as its event.",
+                  "",
+                  "This can be any arbritrary string - handled by the process that receives it.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[response]",
+                "content": [
+                  "",
+                  "Optional argument",
+                  "",
+                  "By setting `[response]` to `true`, it causes the function to stall the entire program until it receives a response from the other process.",
+                  "",
+                  "Note that blocking in this way can be quite slow - it is intended to be used in situations where it is acceptable to skip a frame or two while waiting for a reply.",
+                  "",
+                  "When `[response]` is a function, the event handler of the receiving process can reply with another message that is handled by that function.",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Examples",
+            "content": [
+              "",
+              "> From the Picotron Manual",
+              "",
+              "When reply is true, send_message blocks until the process responds with a reply. For example, paste the following in to terminal to set up a headless process that responds to \"get_id\" messages:",
+              "",
+              "```lua",
+              "store(\"/ram/get_id.lua\", [[",
+              "    id = 1",
+              "    function _update() end",
+              "    on_event(\"get_id\", function() ",
+              "        id += 1",
+              "        return {id = id} ",
+              "    end)",
+              "]])",
+              "pid2 = create_process(\"/ram/get_id.lua\")",
+              "```",
+              "",
+              "A unique id can be fetched from this process with:",
+              "",
+              "```lua",
+              "?send_message(pid2, {event = \"get_id\"}, true).id",
+              "```",
+              "",
+              "The true argument for `[response]` causes the message to be blocking - waiting for the response from `pid2`, being the data including the `id` it requests.",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Sandboxed Nature",
+            "content": [
+              "",
+              "Sandboxed processes can send messages to:",
+              "",
+              "* itself",
+              "* /system/",
+              "* wm",
+              "",
+              "alongside sending certain events:",
+              "",
+              "* \"set_palette\"",
+              "* \"broadcast\" *if* it has a contained event of `set_palette`",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This function returns nothing, unless you have a response, where it instead returns the response of the event."
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/set_spr/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "set_spr(index, s, [flags_val])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`set_spr` adds or removes a sprite at a set index.",
+              "",
+              "Sprite flags are stored at 0xc000 (16k)",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "index",
+                "content": [
+                  "",
+                  "The index of the sprite you're modifying in the spritesheet.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "s",
+                "content": [
+                  "",
+                  "The sprite data to set in sprite `index`, form of a `userdata u8`.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[flags_val]",
+                "content": [
+                  "",
+                  "The flag information to be set for sprite `index`, defaults to 0",
+                  "",
+                  "Poked into `0xc000`, offset by `index &= 0x3fff`",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This function does not return anything"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/spr/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "spr(sprite,[x],[y],[flip_x],[flip_y])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`sspr` draws a sprite, similar to [`spr()`](/functions/spr/main.md), but allows you to also resize the sprite.",
+              "",
+              "This is scaling sprites, e.g: zoom",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "sprite",
+                "content": [
+                  "",
+                  "Sprite index from the spritesheet, or a `userdata u8` piece of data - this is what is drawn.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "x,y",
+                "content": [
+                  "",
+                  "The coordinates of where to draw the sprite",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[flip_x],[flip_y]",
+                "content": [
+                  "",
+                  "Flips the sprite on their respective axis",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Examples",
+            "content": [
+              "",
+              "Draw a sprite from sprite index 0 to position (0,0)",
+              "```lua",
+              "spr(0,0,0)",
+              "```",
+              "",
+              "Draw a sprite from a `userdata u8` to position (0,0)",
+              "```lua",
+              "sp=--[[pod_type=\"gfx\"]]unpod(\"b64:bHo0ALEAAAC4AQAA_gFweHUAQyBAQATw9jPwHDOwBQCvcDM3M-AUMzEzMAkACEuz8BSzBQCPcDNw8wxwM7AHAAGN8ABz_wxz8AQGADAAM-t3AAkFAO9wMzt-IPsMfjszMDM7fgkABo8_dz77BD53PgsAEz9_u34KABBf-gS7-gQIAAjvPxp_Nz67Pjd_PTMwMz0MAA6fcDN9frt_fTOwCAAEYPAAc7s_uwwBDwcAAFQM8wzwFAQAUPMM8P8D\")",
+              "",
+              "spr(sp,0,0)",
+              "```",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "Unknown"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/sspr/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "sspr(sprite,[x],[y],[flip_x],[flip_y])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`sspr` draws a sprite, similar to [`spr()`](/functions/spr/main.md), but allows you to also resize the sprite.",
+              "",
+              "This is scaling sprites, e.g: zoom",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "sprite",
+                "content": [
+                  "",
+                  "Sprite index from the spritesheet, or a `userdata u8` piece of data - this is what is drawn.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "x,y",
+                "content": [
+                  "",
+                  "The coordinates of what is treated as the top left of `sprite`, allowing you to add offsets",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "sw,sh",
+                "content": [
+                  "",
+                  "The width & height of `sprite` - allows you to crop the sprite.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "dx,dy",
+                "content": [
+                  "",
+                  "Where you want the sprite to be drawn on the screen",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[dw],[dh]",
+                "content": [
+                  "",
+                  "Optional, defaults to the proportions of the sprite",
+                  "",
+                  "The new width & height of `sprite`.",
+                  "",
+                  "`sprite` will be drawn rescaled to match the proportions of `[dx],[dy]`.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[flip_x],[flip_y]",
+                "content": [
+                  "",
+                  "Flips the sprite on their respective axis",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Examples",
+            "content": [
+              "",
+              "```lua",
+              "local mapUD=userdata(\"u8\",480,270)",
+              "",
+              "set_draw_target(mapUD) --all graphical operations now go to the map userdata",
+              "map() --draw map",
+              "set_draw_target() --return graphical operations to the window/screen",
+              "",
+              "--mapwidth,mapheight is the proportions of the map",
+              "--x,y is where to draw the map",
+              "",
+              "sspr(mapUD,0,0,mapwidth,mapheight,x,y,mapwidth*2,mapheight*2)",
+              "```",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "Unknown"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/store/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "store(location, obj, [metadata])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`store` allows you to store files, typically used for save files by storing tables in the `pod` file format.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "location",
+                "content": [
+                  "",
+                  "The location you want to store a file at, e.g: `/appdata/mypod.pod`",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "obj",
+                "content": [
+                  "",
+                  "The file data, e.g: a table for a `.pod` file.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[metadata]",
+                "content": [
+                  "",
+                  "Optional metadata of the file, e.g: `{mymetadatavalue=\"grapes\"}`",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This function does not return anything"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/store_metadata/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "store_metadata(filename,meta)",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "`store_metadata` stores metadata, `meta`, at a file or directory, `filename`, merging with the original metadata.",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "filename",
+                "content": [
+                  "",
+                  "The path to the file or directory to store metadata in",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "meta",
+                "content": [
+                  "",
+                  "The metadata to store in the file or directory",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This function does not return anything",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Possible Future",
+            "content": [
+              "",
+              "Ability to remove metadata items from the pre-existing metadata"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/unmap/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "unmap(ud,addr,[len])",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "this is the only way to release mapped userdata for collection",
+              "",
+              "e.g. memmapping a userdata over an old one is not sufficient to free it for collection",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "ud",
+                "content": [
+                  "",
+                  "The userdata that is unmapped from memory",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "addr",
+                "content": [
+                  "",
+                  "The address to unmap the userdata from",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "[len]",
+                "content": [
+                  "",
+                  "Length of the userdata to unmap, defaults to the full userdata length",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [
+              "",
+              "This function does not return anything"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "readme.md",
+    "path": "/picotron_api/gui/readme.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "Picotron API > GUI",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Documentation on the GUIs for Picotron"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "readme.md",
+    "path": "/picotron_api/readme.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "Picotron API",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Documentation on all of the Picotron API",
+              "",
+              "[Functions](functions/readme.md)",
+              "[GUI](gui/readme.md)",
+              "[Userdata](userdata/readme.md)"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "readme.md",
+    "path": "/picotron_api/userdata/readme.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "Picotron API > userdata",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Documentation on userdata for Picotron"
+            ],
+            "children": []
+          }
+        ]
       }
     ]
   },
