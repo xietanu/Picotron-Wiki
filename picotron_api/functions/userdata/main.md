@@ -1,4 +1,4 @@
-# userdata(type, width, [height], [data]): userdata
+# userdata(type, width, [height], [data]): ud
 ## Overview
 The userdata function is one of two ways to create a new userdata from scratch, with the other being the [vec](picotron_api/functions/vec/main.md) function.
 Produces a new [userdata](/picotron_api/userdata/readme.md) with a specified type and size.
@@ -13,12 +13,12 @@ The type of number that the userdata will contain.
 - "i64" is a signed 64-bit integer
 - "f64" is a 64-bit floating point number
 
-### `width`: integer
+### `width`: number
 
-The number of columns in the produced userdata.
+The number of columns in the produced userdata. Will be floored. If less than 1, causes the returned value to be nil.
 
-### `[height]`: integer
-The number of rows in the produced userdata. Defaults to 1.  
+### `[height]`: number
+The number of rows in the produced userdata. Will be floored. If less than 1, causes the returned value to be nil. When excluded, the userdata will have one row, but will not have an internal height value, which can affect the behavior of some userdata methods.
 
 ### `[data]`: string
 The values to initialize the userdata with. Defaults to setting every entry to 0.
@@ -28,7 +28,8 @@ If the userdata is an integer type, `data` must be formatted as a contiguous 0-p
 If the userdata is a floating point type, `data` must be formatted as a comma-separated list of decimal values. For instance, `"0.1,0.5,12"`.
 
 ## Returns
-[userdata](/picotron_api/userdata/readme.md)
+### `ud`: [userdata](/picotron_api/userdata/readme.md)|nil
+The userdata produced, or nil if `width` or `height` is less than 1.
 
 ## Example
 ```lua
