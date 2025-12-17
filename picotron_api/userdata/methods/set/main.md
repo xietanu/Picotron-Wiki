@@ -1,6 +1,6 @@
 # userdata:set(i, ...)
 ## Overview
-Sets one or more values in the userdata starting at index `i`. Will do nothing if the starting index is out of range.
+For 1D userdatas, sets one or more values in the userdata starting at index `i`. Will do nothing if the starting index is out of range.
 
 ## Arguments
 ### `i`: number
@@ -24,7 +24,7 @@ ud:set(3, -1, -2, -3)
 
 # userdata:set([column], [row], ...)
 ## Overview
-Sets one or more values in the userdata starting at a specific column and row in flat index order. Will do nothing if the starting index is out of range.
+For 2D userdatas, sets one or more values in the userdata starting at a specific column and row, enumerating in flat index order. Will do nothing if the starting index is out of range.
 
 ## Arguments
 ### `[column]`: number

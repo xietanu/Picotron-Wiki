@@ -1,7 +1,7 @@
 # vec(...): ud
 ## Overview
 The vec function is one of two ways to create a new userdata from scratch, with the other being the [userdata](picotron_api/functions/userdata/main.md) function.
-Produces a new f64 typed [userdata](/picotron_api/userdata/readme.md) populated with each of the arguments and without a height value.
+Produces a new f64 typed 1D [userdata](/picotron_api/userdata/readme.md) populated with each of the arguments.
 
 ## Arguments
 ### `...`: number|nil
