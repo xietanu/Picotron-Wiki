@@ -31,7 +31,7 @@ Documenting every section of `/system`
 
 [@akd-io](https://github.com/akd-io) - stat documentation support
 
-@Maxine - stat documentation support
+[@Maxine](https://github.com/MaxTheMooshroom) - stat documentation support
 
 @Astralsparv - creator/writing up of lots of general things
 
