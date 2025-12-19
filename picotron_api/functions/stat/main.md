@@ -48,8 +48,8 @@ where c is a channel, addr is an address, n is a node:
 * 309 - Unknown
 * 310 - Unknown
 * 311 - Unknown
-* 312 - Unknown
-* 313 - Unknown
+* 312 - 4096 (amount of bytes in a page)
+* 313 - Unknown, *likely* amount of memory allocated total
 * 314 - Pi as `3..1415926535898`
 * 315 - Presence of `-x` CLI argument when running Picotron headless
 * 316 - Path specified when running headless
@@ -134,12 +134,6 @@ if (stat_type != UNDOCUMENTED_311) goto LAB_00460c7f;
 tmp_int0 = pdisk_count_slots_by_kind(0);
 result_num = (lua_Number)tmp_int0;
 ```
-
-### 312
-
-Observed value `4096.0` in stat.lua output.
-
-Size of a page in bytes?
 
 #### Picotron Manual reference
 Each process in Picotron has a limit of 32MB RAM, which includes both allocations for Lua objects, and data stored directly in RAM using memory functions like poke() and memcpy(). In the latter case, 4k pages are allocated when a page is written, and can not be deallocated during the process lifetime.
