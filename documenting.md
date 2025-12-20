@@ -14,7 +14,12 @@ main.md pages (e.g: functions, methods) are formatted as such:
 For each overload of a function or method, a heading describes the signature.
 
 ```md
-# class:function(args, [optional args]): returned_a, returned_b
+# function:(args, [optional_args]): returned_a, returned_b
+```
+
+For methods, the type they belong to should be included on the left as though that method were being invoked, separated from the function name with a colon.
+```md
+# class:method(args, [optional_args]): returned_a, returned_b
 ```
 
 Arguments and return values in the signature are just descriptive labels without specified types. For arguments which are optional, they must surrounded with [brackets].
