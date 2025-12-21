@@ -1,4 +1,4 @@
-# div(lhs, rhs, [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count]): written
+# mod(lhs, rhs, [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count]): written
 
 ## Overview
 Calculates the modulo of the elements on the left hand side by elements on the right hand side.
