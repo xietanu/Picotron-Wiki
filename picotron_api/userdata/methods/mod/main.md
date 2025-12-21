@@ -1,16 +1,16 @@
-# add(lhs, rhs, [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count]): written
+# div(lhs, rhs, [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count]): written
 
 ## Overview
-Adds elements on the left and right hand sides.
+Calculates the modulo of the elements on the left hand side by elements on the right hand side.
 
 This function uses the userdata operator signature. Read the [bulk operations](/picotron_api/userdata/readme.md/#bulk-operations) section of the userdata documentation for a detailed explanation of how the arguments work.
 
 ## Arguments
 ### `lhs`: [userdata](/picotron_api/userdata/readme.md)|number
-The left hand side of the addition operation.
+The left hand side of the modulo operation.
 
 ### `rhs`: [userdata](/picotron_api/userdata/readme.md)|number
-The right hand side of the addition operation.
+The right hand side of the modulo operation.
 
 ### `[dest]`: [userdata](/picotron_api/userdata/readme.md)|true
 The destination userdata to write to. Behavior depends on the type of `dest`, `lhs`, and `rhs`. See the table below.
