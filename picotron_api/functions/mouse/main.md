@@ -2,7 +2,7 @@
 
 ## Overview
 
-`mouse` is used to get and set the positioning of the cursor.
+`mouse` is used to get and set the positioning of the cursor relative to the window.
 
 Source: [source.lua](source.lua)
 
