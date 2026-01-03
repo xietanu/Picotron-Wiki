@@ -42,7 +42,7 @@ where c is a channel, addr is an address, n is a node:
 * 153 - web: window.location.hash
 * 301 - total CPU usage
 * 302, keycode - returns human readable name for the keycode, surface [SDL's GetKeyName](https://wiki.libsdl.org/SDL2/SDL_GetKeyName)
-* 305 - Unknown
+* 305 - Whether any key is pressed
 * 307 - 1.0 if current working path is `/system` (including if the cartridge is located in `/system/`)
 * 308 - Unknown
 * 309 - Unknown
@@ -93,13 +93,6 @@ The queried information from the stat, unique to `n`, see the valid stats above 
 More information on unknown stats.
 
 [stat.lua](https://github.com/akd-io/picotron/blob/main/drive/projects/stat/stat.lua) (a test from akd-io)
-
-### 305
-
-something to do with the keyboard, is any key pressed / what key is pressed ?
-```lua
-any_key1 = stat(305) -- this frame
-```
 
 ### 308
 
