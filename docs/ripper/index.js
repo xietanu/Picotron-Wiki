@@ -87,13 +87,21 @@ function isArray(arr){
     return (Array.isArray(arr) || (Object.prototype.toString.call(arr) === '[object Object]')) // object Object??
 }
 
-function pod(dict){
+// do_not_increment exists incase there's edge cases, unsure what they could be
+// stuff with tomfoolery setting arrays/dicts?
+// 
+// defaults as false, would just +1 to the index to not be 0-indexed bc lua
+
+function pod(dict,do_not_increment){
     let res="";
     for (var key in dict){
         const value=dict[key]
         let pkey=key;
         let pvalue=value;
         if (!isNaN(Number(pkey))){
+            if (!do_not_increment){
+                pkey=Number(pkey)+1;
+            }
             pkey=`[${pkey}]`;
         }
         if (isArray(value)){
