@@ -92,3 +92,157 @@ function rip(){
         }
     }
 }
+
+function isArray(arr){
+    return (Array.isArray(arr) || (Object.prototype.toString.call(arr) === '[object Object]')) // object Object??
+}
+
+function dictionaryToPod(dict){
+    let res="";
+    for (var key in dict){
+        const value=dict[key]
+        let pkey=key;
+        let pvalue=value;
+        if (!isNaN(Number(pkey))){
+            pkey=`[${pkey}]`;
+        }
+        if (isArray(value)){
+            let str=dictionaryToPod(value);
+            res+=`${pkey}=${str},`;
+        } else if (typeof value=="string"){
+            // auto-escape " to \"
+            pvalue=pvalue.replaceAll(`"`,`\\"`);
+            res+=`${pkey}="${pvalue}",`;
+        } else {
+            res+=`${pkey}=${pvalue},`;
+        }
+    }
+    res=res.substring(0,res.length-1); //remove last ,
+    return `{${res}}`;
+}
+
+/*
+let arr=[2,3,4,"a",false];
+let dict={
+    "number": 2,
+    "bool": true,
+    "apple": "apple!\"",
+    "table":[
+        "hello",
+        "applesauce",
+        2,
+        true,
+        [1,2],
+        {
+            "strng": "hhello world"
+        }
+    ]
+};
+console.log(arr);
+console.log(dictionaryToPod(arr));
+console.log(dict);
+console.log(dictionaryToPod(dict));
+*/
+
+
+// -1 header level == don't check header level
+// "" header == don't check header text
+function cutSection(processed,header,headerLevel,type){
+    let data=[]; //multiple headers
+    let toprocess=structuredClone(processed);
+    /*
+    for (let i=0; i<toprocess.length; i++){
+        if (headerLevel==-1 || (toprocess[i].level==headerLevel)){
+            if (header=="" || toprocess[i].text==header){
+                if (type=="text"){
+                    data.push(toprocess[i].text);
+                }else{
+                    data.push(toprocess[i].content);
+                }
+                toprocess.push(toprocess[i].children);
+            }
+        }
+    }
+    */
+    while (toprocess.length>0){
+        let obj=toprocess.shift();
+        if (headerLevel==-1 || (obj.level==headerLevel)){
+            if (header=="" || obj.text==header){
+                if (type=="text"){
+                    data.push(obj.text);
+                }else{
+                    console.log(obj.content);
+                    data.push(obj.content);
+                }
+            }
+        }
+        for (var key in obj.children){
+            toprocess.push(obj.children[key]);
+        }
+    }
+    return data;
+}
+
+function cutMini(processed){
+    let titles=cutSection(processed,"",1,"text");
+    let overviews=cutSection(processed,"Overview",-1);
+    let db=[];
+
+    for (let i=0; i<titles.length; i++){
+        let arr={}
+        arr["title"]=titles[i];
+        arr["overview"]=overviews[i];
+        db.push(arr);
+    }
+
+    return db;
+}
+
+function pod(){
+    files=document.getElementById('wiki').files;
+    fulldb=[];
+    minidb=[];//h1 & h2
+    let pending=0;
+    for (let i=0; i<files.length; i++){
+        let file=files[i];
+        if (ext(file.name)=="md"){
+            const reader=new FileReader()
+            pending++;
+            // reader is async
+            reader.onload=function(e){
+                const processed=processContent(e.target.result);
+                fulldb.push(
+                    {
+                        "name":file.name,
+                        "path":cutFirstSegment(file.webkitRelativePath),
+                        "data":processed
+                    }
+                )
+                minidb.push(
+                    {
+                        "name":file.name,
+                        "path":cutFirstSegment(file.webkitRelativePath),
+                        "data":cutMini(processed)
+                    }
+                )
+                pending--;
+                if (pending==0){
+                    console.log(minidb);
+                    //convert dbs to json
+                    /*
+                    const jsonString = JSON.stringify(db, null, 2);
+                    const blob = new Blob([jsonString], { type: "application/json" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "data.json";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);*/
+                }
+            };
+            reader.readAsText(file);
+        }
+    }
+}
