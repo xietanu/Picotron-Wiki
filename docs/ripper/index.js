@@ -75,17 +75,7 @@ function rip(){
                 )
                 pending--;
                 if (pending==0){
-                    console.log(db);
-                    const jsonString = JSON.stringify(db, null, 2);
-                    const blob = new Blob([jsonString], { type: "application/json" });
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement("a");
-                    a.href = url;
-                    a.download = "data.json";
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
+                    downloadFile("db.json",JSON.stringify(db, null, 2));
                 }
             };
             reader.readAsText(file);
@@ -97,7 +87,7 @@ function isArray(arr){
     return (Array.isArray(arr) || (Object.prototype.toString.call(arr) === '[object Object]')) // object Object??
 }
 
-function dictionaryToPod(dict){
+function pod(dict){
     let res="";
     for (var key in dict){
         const value=dict[key]
@@ -107,13 +97,13 @@ function dictionaryToPod(dict){
             pkey=`[${pkey}]`;
         }
         if (isArray(value)){
-            let str=dictionaryToPod(value);
+            let str=pod(value);
             res+=`${pkey}=${str},`;
         } else if (typeof value=="string"){
             // auto-escape " to \"
             pvalue=pvalue.replaceAll(`"`,`\\"`);
             res+=`${pkey}="${pvalue}",`;
-        } else {
+        } else if (!(value==null || isNaN(value))) {
             res+=`${pkey}=${pvalue},`;
         }
     }
@@ -198,10 +188,19 @@ function cutMini(processed){
     return db;
 }
 
-function pod(){
+function downloadFile(filename,str){
+    const link=document.createElement("a");
+    const file=new Blob([str],{type:"text/plain"});
+    link.href=URL.createObjectURL(file);
+    link.download=filename;
+    link.click();
+    URL.revokeObjectURL(link.href);
+}
+
+function ripToPod(){
     files=document.getElementById('wiki').files;
     fulldb=[];
-    minidb=[];//h1 & h2
+    minidb=[];//titles & overview
     let pending=0;
     for (let i=0; i<files.length; i++){
         let file=files[i];
@@ -227,19 +226,8 @@ function pod(){
                 )
                 pending--;
                 if (pending==0){
-                    console.log(minidb);
-                    //convert dbs to json
-                    /*
-                    const jsonString = JSON.stringify(db, null, 2);
-                    const blob = new Blob([jsonString], { type: "application/json" });
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement("a");
-                    a.href = url;
-                    a.download = "data.json";
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);*/
+                    downloadFile("minidb.pod",pod(minidb));
+                    downloadFile("db.pod",pod(fulldb));
                 }
             };
             reader.readAsText(file);

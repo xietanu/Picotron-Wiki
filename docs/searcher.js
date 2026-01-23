@@ -158,7 +158,7 @@ function search(q){
     pushResults(finds,q);
 }
 
-fetch('db.json')
+fetch('db/db.json')
     .then(response => {
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
