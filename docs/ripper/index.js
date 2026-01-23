@@ -94,29 +94,36 @@ function isArray(arr){
 
 function pod(dict,do_not_increment){
     let res="";
-    for (var key in dict){
-        const value=dict[key]
-        let pkey=key;
-        let pvalue=value;
-        if (!isNaN(Number(pkey))){
-            if (!do_not_increment){
-                pkey=Number(pkey)+1;
+    if (isArray(dict)){
+        for (var key in dict){
+            const value=dict[key]
+            let pkey=key;
+            let pvalue=pod(value);
+            if (!isNaN(Number(pkey))){
+                if (!do_not_increment){
+                    pkey=Number(pkey)+1;
+                }
+                pkey=`[${pkey}]`;
             }
-            pkey=`[${pkey}]`;
+            if (pvalue!="nil"){
+                res+=`${pkey}=${pvalue},`
+            }
         }
-        if (isArray(value)){
-            let str=pod(value);
-            res+=`${pkey}=${str},`;
-        } else if (typeof value=="string"){
+        res=res.substring(0,res.length-1); //remove last ,
+        return `{${res}}`;
+    }else{
+        let value=dict;
+        let pvalue=dict;
+        if (typeof value=="string"){
             // auto-escape " to \"
             pvalue=pvalue.replaceAll(`"`,`\\"`);
-            res+=`${pkey}="${pvalue}",`;
+            return `"${pvalue}"`;
         } else if (!(value==null || isNaN(value))) {
-            res+=`${pkey}=${pvalue},`;
+            return String(pvalue);
+        } else {
+            return "nil"
         }
     }
-    res=res.substring(0,res.length-1); //remove last ,
-    return `{${res}}`;
 }
 
 /*
