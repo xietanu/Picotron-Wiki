@@ -112,9 +112,10 @@ function pod(dict,meta,do_not_increment){
                 res+=`,${pkey}=${pvalue}`;
             }
         }
-        res+="]]\n";
+        res+="]]";
     }
     if (isArray(dict)){
+        if (isArray(meta)){res+="\n"};
         res+="{";
         let first=true;
         for (var key in dict){
@@ -143,11 +144,11 @@ function pod(dict,meta,do_not_increment){
             // escape stuff
             pvalue=pvalue.replaceAll(`\\`,`\\\\"`);
             pvalue=pvalue.replaceAll(`"`,`\\"`);
-            return `"${pvalue}"`;
+            return res+`"${pvalue}"`;
         } else if (!(value==null || isNaN(value))) {
-            return String(pvalue);
+            return res+String(pvalue);
         } else {
-            return "nil"
+            return res+"nil"
         }
     }
 }
