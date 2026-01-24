@@ -2,10 +2,9 @@
 
 ## Wiki Information
 
-A likely futile attempt to support the documentation of [Picotron](https://www.lexaloffle.com/picotron.php).
+Documentation of [Picotron](https://www.lexaloffle.com/picotron.php).
 
-Hopefully having a markdown viewer cartridge with the ability to view all of this information within Picotron natively (& any github pages in extension)
-
+The official Picotron Wiki cart has been released on the [bbs](https://www.lexaloffle.com/bbs/?tid=154532) under the bbs id `#wiki`, more info can be found [here](cart.md)
 Information on contribution to documentation is [here](documenting.md)
 
 ## Search Engine
