@@ -98,7 +98,7 @@ function pod(dict,do_not_increment){
         for (var key in dict){
             const value=dict[key]
             let pkey=key;
-            let pvalue=pod(value);
+            let pvalue=pod(value,do_not_increment);
             if (!isNaN(Number(pkey))){
                 if (!do_not_increment){
                     pkey=Number(pkey)+1;
@@ -115,7 +115,8 @@ function pod(dict,do_not_increment){
         let value=dict;
         let pvalue=dict;
         if (typeof value=="string"){
-            // auto-escape " to \"
+            // escape stuff
+            pvalue=pvalue.replaceAll(`\\`,`\\\\"`);
             pvalue=pvalue.replaceAll(`"`,`\\"`);
             return `"${pvalue}"`;
         } else if (!(value==null || isNaN(value))) {
