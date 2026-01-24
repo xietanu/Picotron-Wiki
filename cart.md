@@ -35,6 +35,6 @@ Custom themes:
 * Colors
 * Fonts
 
-Settings that let you change the database source (from the astralsparv github repo to another, on the off chance this is abandoned)
-
 There's no variation between headers, they are all lilwide.
+
+Codeblocks aren't proper codeblocks nor do they have syntax - likely that they'll have to be handled seperately to normal prints.
