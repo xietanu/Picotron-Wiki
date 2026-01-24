@@ -91,10 +91,32 @@ function isArray(arr){
 // stuff with tomfoolery setting arrays/dicts?
 // 
 // defaults as false, would just +1 to the index to not be 0-indexed bc lua
+// meta is an array
 
-function pod(dict,do_not_increment){
+function pod(dict,meta,do_not_increment){
+    //generate the meta
     let res="";
+    if (isArray(meta)){
+        res="--[[pod";
+        for (var key in meta){
+            const value=meta[key]
+            let pkey=key;
+            let pvalue=pod(value,do_not_increment);
+            if (!isNaN(Number(pkey))){
+                if (!do_not_increment){
+                    pkey=Number(pkey)+1;
+                }
+                pkey=`[${pkey}]`;
+            }
+            if (pvalue!="nil"){
+                res+=`,${pkey}=${pvalue}`;
+            }
+        }
+        res+="]]\n";
+    }
     if (isArray(dict)){
+        res+="{";
+        let first=true;
         for (var key in dict){
             const value=dict[key]
             let pkey=key;
@@ -106,11 +128,14 @@ function pod(dict,do_not_increment){
                 pkey=`[${pkey}]`;
             }
             if (pvalue!="nil"){
-                res+=`${pkey}=${pvalue},`
+                if (!first){
+                    res+=",";
+                }
+                res+=`${pkey}=${pvalue}`
+                first=false;
             }
         }
-        res=res.substring(0,res.length-1); //remove last ,
-        return `{${res}}`;
+        return `${res}}`;
     }else{
         let value=dict;
         let pvalue=dict;
@@ -128,6 +153,12 @@ function pod(dict,do_not_increment){
 }
 
 /*
+// meta test
+console.log(pod(
+    {hello:"world"},
+    {grape:2}
+));
+
 let arr=[2,3,4,"a",false];
 let dict={
     "number": 2,
@@ -177,7 +208,6 @@ function cutSection(processed,header,headerLevel,type){
                 if (type=="text"){
                     data.push(obj.text);
                 }else{
-                    console.log(obj.content);
                     data.push(obj.content);
                 }
             }
@@ -242,8 +272,11 @@ function ripToPod(){
                 )
                 pending--;
                 if (pending==0){
-                    downloadFile("minidb.pod",pod(minidb));
-                    downloadFile("db.pod",pod(fulldb));
+                    //ts metadata value gets checked between the one stored
+                    //in pt wiki app & the online one
+                    //to see whether to re-process it or not
+                    downloadFile("minidb.pod",pod(minidb,{ts:`${Date.now()}`}));
+                    downloadFile("db.pod",pod(fulldb,{ts:`${Date.now()}`}));
                 }
             };
             reader.readAsText(file);
