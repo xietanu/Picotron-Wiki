@@ -712,32 +712,6 @@
   },
   {
     "name": "main.md",
-    "path": "/system/details/util/reboot/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "reboot",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "Reboots Picotron",
-              "",
-              "Source: [source.lua](source.lua)"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
     "path": "/system/details/util/rm/main.md",
     "data": [
       {
@@ -820,6 +794,32 @@
   },
   {
     "name": "main.md",
+    "path": "/system/details/util/reboot/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "reboot",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Reboots Picotron",
+              "",
+              "Source: [source.lua](source.lua)"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
     "path": "/system/details/util/pwd/main.md",
     "data": [
       {
@@ -865,55 +865,6 @@
               "Source: [source.lua](source.lua)"
             ],
             "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/system/details/util/open/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "open path",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "Identical to `edit`",
-              "",
-              "Open the file specified",
-              "",
-              "Fails if there is no default program to open it",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "path",
-                "content": [
-                  "",
-                  "Path to the file you want to open"
-                ],
-                "children": []
-              }
-            ]
           }
         ]
       }
@@ -1001,6 +952,55 @@
                     "children": []
                   }
                 ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/system/details/util/open/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "open path",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Identical to `edit`",
+              "",
+              "Open the file specified",
+              "",
+              "Fails if there is no default program to open it",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "path",
+                "content": [
+                  "",
+                  "Path to the file you want to open"
+                ],
+                "children": []
               }
             ]
           }
@@ -1200,54 +1200,6 @@
   },
   {
     "name": "main.md",
-    "path": "/system/details/util/ls/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "ls [path]",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "Identical to `dir`",
-              "List all files in the directory",
-              "",
-              "Defaults to your current working path",
-              "",
-              "Source: [source.lua](source.lua)",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [
-              ""
-            ],
-            "children": [
-              {
-                "level": 3,
-                "text": "[path]",
-                "content": [
-                  "",
-                  "Optional argument for the path you want to list files of, instead of your current working path"
-                ],
-                "children": []
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
     "path": "/system/details/util/load/main.md",
     "data": [
       {
@@ -1303,6 +1255,54 @@
                   "The path, folder or file, to a cartridge",
                   "",
                   "Append with `bbs://` protocol or `#` to load a cartridge from the bbs"
+                ],
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/system/details/util/ls/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "ls [path]",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Identical to `dir`",
+              "List all files in the directory",
+              "",
+              "Defaults to your current working path",
+              "",
+              "Source: [source.lua](source.lua)",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [
+              ""
+            ],
+            "children": [
+              {
+                "level": 3,
+                "text": "[path]",
+                "content": [
+                  "",
+                  "Optional argument for the path you want to list files of, instead of your current working path"
                 ],
                 "children": []
               }
@@ -1948,7 +1948,7 @@
             "content": [
               "A userdata is a specialized array type that contains numeric values, and is optimized for bulk operations. Because of this, they are an essential tool for optimizing code in Picotron.",
               "",
-              "Userdatas are especially useful for representing large amounts of numerical data in a manner that's easy to manipulate and copy. They are also a pragmatic way to do operations based in linear algebra, and have a dedicated set of vector/matrix-specific methods, such as [`magnitude()`](methods/magnitude/main.md), [`cross()`](methods/cross/main.md) and [`matmul()`](methods/magnitude/main.md).",
+              "Userdatas are especially useful for representing large amounts of numerical data in a manner that's easy to manipulate and copy. They are also a pragmatic way to do operations based in linear algebra, and have a dedicated set of vector/matrix-specific methods, such as [`magnitude()`](methods/magnitude/main.md), [`cross()`](methods/cross/main.md) and [`matmul()`](methods/matmul/main.md).",
               "",
               "Userdatas are a reference type. You can have multiple variables pointing to the same userdata. Many of userdata's methods and operators create and return new userdatas by default, rather than mutating the existing userdata, but unlike a string, they are still mutable by certain operations. You can create a new copy of a userdata by calling its [`copy()`](methods/copy/main.md) method with no arguments.",
               ""
@@ -1963,7 +1963,7 @@
               "",
               "- From scratch, using the [`userdata()`](/picotron_api/functions/userdata/main.md) or [`vec()`](/picotron_api/functions/vec/main.md) functions.",
               "- When using an operator on an existing userdata.",
-              "- By calling an [operation](#bulk-operations) function when the `target` argument is falsey.",
+              "- By calling an [operation](#bulk-operations) function when the `dest` argument is falsey.",
               ""
             ],
             "children": []
@@ -1991,7 +1991,7 @@
             "content": [
               "You can fetch the total number of elements in a userdata by using the [`#`](metamethods/__len/main.md) operator, much like you would for a table array. For the number of rows or columns, you can use the [`height()`](methods/height/main.md), [`width()`](methods/width/main.md), or [`attribs()`](methods/attribs/main.md) methods.",
               "",
-              "2D userdatas are laid out contiguously in memory. The first row in its entirety is followed by the second, then the third, and so on, in lexicographical order. In other words, 2D userdatas have flat indices.",
+              "2D userdatas, as arrays, are completely flat, as opposed to being a nested structure of arrays within arrays. Every element is somewhere in one contiguous set of indices. 2D userdatas are row-major, meaning that the elements in each row are stored consecutively, and each of those rows is stored in width-sized chunks. The indices in the userdata are traversed in lexicographical order.",
               "",
               "There are two ways to index a userdata. You can do it the same way you would for a table, by using the [`[i]`](metamethods/__index/main.md) syntax. You can also call the [`get()`](methods/get/main.md) method, which will allow you to use row and column indices instead of a flat index.",
               "",
@@ -2091,105 +2091,141 @@
               "- [`max`](methods/max/main.md)",
               "",
               "The signature for these methods is `ud = lhs:op([rhs], [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count])`, but to build robust knowledge, this section will start with the most basic usage and gradually add additional features from each of the arguments.",
-              "",
-              "For the one-op methods, the `rhs` argument is completely ignored, unless `lhs` is not a userdata. Without any arguments this will just apply the operation to every element in the userdata. `ud = lhs:abs()` will create a userdata `ud` which is identical to `lhs`, except every value will be absolute instead of signed.",
-              "",
-              "For the two-op methods, `rhs` is required, and will be applied just like the respective instruction the operation is named after. `ud = lhs:div(rhs)` will produce a userdata `ud` which is identical to `lhs`, except each element will be divided by the element in `rhs` which shares the same index. `ud = vec(1, 2):div(vec(2, 3))` will produce a userdata with the elements in index 0 and 1 being 1/2 and 2/3, respectively.",
-              "",
-              "Either `lhs` or `rhs` can be a scalar value, which will be broadcast to every element in the userdata on the opposite side. You can use a scalar value for the left hand side by calling the operation as a function, either on the userdata, like `ud = rhs.div(1, rhs)`, or through the `USERDATA` table, `ud = USERDATA.div(1, rhs)`. The `USERDATA` table is not mentioned in the official documentation, so while it's a perfectly practical way to do this, it is unknown if it's reliable from version to version.",
-              "",
-              "Userdatas have their operators aliased to these two-op methods, so `vec(1, 2):div(vec(2, 3))` is exactly equivalent to `vec(1, 2) / vec(2, 3)`. This will allow you to use scalar values for `lhs` easily, since `rhs` will get the call with the relevant operands. For example, you can get a userdata of reciprocals through the expression `ud = 1 / vec(2, 3)`.",
-              "",
-              "`dest` controls which userdata the resulting values should be written to. If `dest` is falsey, a copy of `lhs` will be created, and the values will be written to that. If `dest` is a userdata, then the values will be written into that userdata. If `dest` is some other truthy value, then the values will be written directly to `lhs`. In every case, the userdata that was written to will be returned.",
-              "",
-              "```lua",
-              "local dest = vec(0, 0, 0)",
-              "local lhs = vec(1, 2)",
-              "local rhs = vec(2, 3)",
-              "",
-              "-- Result will be a new userdata containing lhs/rhs.",
-              "local result = lhs:div(rhs)",
-              "-- Replaces the values in lhs with lhs/rhs.",
-              "-- The result variable will point to the same userdata as lhs.",
-              "local result = lhs:div(rhs, true)",
-              "-- Replaces the values in dest with lhs/rhs.",
-              "-- The result variable will point to the same userdata as dest.",
-              "local result = lhs:div(rhs, dest)",
-              "```",
-              "",
-              "Below is a reference table for the behavior of `dest`.",
-              "|`dest`             |`lhs`       |`rhs`   |written to     |",
-              "|-------------------|------------|--------|---------------|",
-              "|userdata           |any         |any     |`dest`         |",
-              "|truthy non-userdata|userdata    |any     |`lhs`          |",
-              "|truthy non-userdata|non-userdata|userdata|`rhs`          |",
-              "|falsey             |userdata    |any     |a copy of `lhs`|",
-              "|falsey             |non-userdata|userdata|a copy of `rhs`|",
-              "",
-              "The next six arguments dictate how the userdatas will be iterated over.",
-              "",
-              "`read_start` and `write_start` control where iteration will start for `rhs` and `lhs`, respectively. These both default to 0, which is why without these arguments, both inputs and the output operate on the same indices for each operation. Setting `read_start` to some other positive value will cause the indices being read from `rhs` to be offset by as much, and similarly for `write_start`, the indices being read from `lhs` and written to in the destination userdata will be offset.",
-              "",
-              "The fact that the index that is being read from `lhs` is also the one being written to in the destination userdata is worth underlining. Even with additional arguments, this correlation never changes.",
-              "",
-              "The operation `ud = vec(1, 2, 3):add(vec(1, 2), false, 0, 1)` will result in `ud` being populated with `1, 3, 5`. The first value is skipped, the second value is `2 + 1`, and the third value is `3 + 2`.",
-              "",
-              "All iteration during the call will automatically clamp to a safe range, never letting accesses go out of bounds. What this means in this case is that if the iteration would cause the `rhs` index to go out of range of `rhs`, or the `lhs` index to go out of range of either `lhs` or the destination userdata, iteration will stop. Without the `group_count` argument, this will stop the function, and return the result immediately.",
-              "",
-              "With just these arguments, it is possible to perform a prefix sum, or any running total operation, by writing to the same userdata that is being read in such a way that the written values will be revisited and used for a future operation.",
-              "```lua",
-              "local ud = userdata(\"i64\", 10)",
-              "-- Copies 1 into every element of ud.",
-              "ud:copy(1, true)",
-              "-- Sums element i with element i + 1, and writes to element i + 1.",
-              "-- i + 1 will be immediately revisited in the next iteration as i, meaning",
-              "-- that the sum total propagates forwards with each iteration.",
-              "ud:add(ud, true, 0, 1)",
-              "ud:add(ud, true, 0, 1) -- Does it again.",
-              "",
-              "for i = 0, #ud - 1 do",
-              "\t?ud[i] -- Prints triangle numbers up to 55.",
-              "end",
-              "```",
-              "",
-              "The `group_size` argument controls the number of consecutive elements that will be operated on. For instance, if you want to put an arbitrary section of one userdata into an equivalently sized section of another userdata, you can use `group_size` to indicate how many elements should be moved. `lhs:copy(rhs, true, 5, 2, 3)` will copy 3 consecutive elements starting from index 5 of `rhs` into `lhs` starting at index 2.",
-              "",
-              "`read_increment`, `write_increment` and `group_count` control an additional layer of iteration. All three of these arguments default to 1. When `group_count` is greater than 1, the entire previous set of operations will happen that many times. Each time, `read_start` and `write_start` will be incremented by `read_increment` and `write_increment`. This is why `group_size` and `group_count` refer to 'groups'. These control the size and number of groups of concecutive elements that will be operated on.",
-              "",
-              "If you wanted to divide every other element from `lhs` with each element from `rhs`, you could do so by using a `group_size` of 1, `write_increment` of 2, and `group_count` equal to the number of elements in `rhs`. The operation would look like: `ud = lhs:div(rhs, false, 0, 0, 1, 1, 2, #rhs)`",
-              "",
-              "It's also possible to set `read_increment` or `write_increment` to 0, which will cause it to repeatedly index the same section of the array for each group. This is useful for broadcasting scalars and groups of values. For example, you may have a 2D userdata with 3D coordinates in each row.",
-              "",
-              "If you wanted to scale them by 10, and flip them on the z axis, you could do so by calling `scaled = coords:mul(vec(10, 10, -10), false, 0, 0, 3, 0, 3, coords:height())`. By setting `read_increment` to 0, each time a coordinate is done being scaled, it will start over at the begining of the `rhs` vector for every group.",
-              "",
-              "As a final example, if you had a 2D userdata that was 9x9, and you wanted to copy a 3x3 userdata with the top left sitting on the (2, 3) coordinate, you can take advantage of every argument to do so.",
-              "```lua",
-              "local bigger = userdata(\"u8\",9,9,\"1c071c0c1c0c110c11071c0c1c0c110c11101c0c1c0c110c1110110c1c0c110c111011101c0c110c11101110010c110c111011100110110c111011100110010c1110111001100100111011100110010001\")",
-              "",
-              "local smaller = userdata(\"u8\",3,3,\"141a141a1a1a141a14\")",
-              "",
-              "-- Note that because userdatas use flat indices, the element one row",
-              "-- down from any given element is located at i + ud:width().",
-              "bigger:copy(",
-              "\tsmaller, -- Read from smaller",
-              "\ttrue, -- Write to bigger.",
-              "\t0, -- Start reading from smaller at index 0.",
-              "\t2 + bigger:width() * 3, -- Start writing to the coordinate (2, 3) on bigger.",
-              "\tsmaller:width(), -- Write 3 consecutive elements at a time.",
-              "\tsmaller:width(), -- After each group, read from the next row in smaller.",
-              "\tbigger:width(), -- After each group, write to the next row in bigger.",
-              "\tsmaller:height() -- Write 3 rows.",
-              ")",
-              "",
-              "spr(bigger) -- Draws the bigger userdata to the screen now that it's mutated.",
-              "```",
-              "",
-              "This is effectively a more verbose way to implement the [`blit`](methods/blit/main.md) operation, but it demonstrates what makes these arguments flexible, and why each is useful for bulk data manipulation.",
-              "",
-              "The same rules about overrunning the end of the array that applies to each individual group also applies to `read_i` and `write_i`. If either exceed the end of the array, iteration will stop, and the value will be immediately returned. Note that even if an individual group overruns, this will not stop the next group from operating if `read_i` and `write_i` are still valid indices.",
               ""
             ],
-            "children": []
+            "children": [
+              {
+                "level": 3,
+                "text": "The `lhs` and `rhs` arguments",
+                "content": [
+                  "For the one-op methods, the `rhs` argument is completely ignored, unless `lhs` is not a userdata. Without any arguments this will just apply the operation to every element in the userdata. `ud = lhs:abs()` will create a userdata `ud` which is identical to `lhs`, except every value will be absolute instead of signed.",
+                  "",
+                  "For the two-op methods, `rhs` is required, and will be applied just like the respective instruction the operation is named after. `ud = lhs:div(rhs)` will produce a userdata `ud` which is identical to `lhs`, except each element will be divided by the element in `rhs` which shares the same index. `ud = vec(1, 2):div(vec(2, 3))` will produce a userdata with the elements in index 0 and 1 being 1/2 and 2/3, respectively.",
+                  "",
+                  "Either `lhs` or `rhs` can be a scalar value, which will be broadcast to every element in the userdata on the opposite side. You can use a scalar value for the left hand side by calling the operation as a function, either on the userdata, like `ud = rhs.div(1, rhs)`, or through the `USERDATA` table, `ud = USERDATA.div(1, rhs)`. The `USERDATA` table is not mentioned in the official documentation, so while it's a perfectly practical way to do this, it is unknown if it's reliable from version to version.",
+                  "",
+                  "Userdatas have their operators aliased to these two-op methods, so `vec(1, 2):div(vec(2, 3))` is exactly equivalent to `vec(1, 2) / vec(2, 3)`. This will allow you to use scalar values for `lhs` easily, since `rhs` will get the call with the relevant operands. For example, you can get a userdata of reciprocals through the expression `ud = 1 / vec(2, 3)`.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "The `dest` argument",
+                "content": [
+                  "`dest` controls which userdata the resulting values should be written to. If `dest` is falsey, a copy of `lhs` will be created, and the values will be written to that. If `dest` is a userdata, then the values will be written into that userdata. If `dest` is some other truthy value, then the values will be written directly to `lhs`. In every case, the userdata that was written to will be returned.",
+                  "",
+                  "```lua",
+                  "local dest = vec(0, 0, 0)",
+                  "local lhs = vec(1, 2)",
+                  "local rhs = vec(2, 3)",
+                  "",
+                  "-- Result will be a new userdata containing lhs/rhs.",
+                  "local result = lhs:div(rhs)",
+                  "-- Replaces the values in lhs with lhs/rhs.",
+                  "-- The result variable will point to the same userdata as lhs.",
+                  "local result = lhs:div(rhs, true)",
+                  "-- Replaces the values in dest with lhs/rhs.",
+                  "-- The result variable will point to the same userdata as dest.",
+                  "local result = lhs:div(rhs, dest)",
+                  "```",
+                  "",
+                  "Below is a reference table for the behavior of `dest`.",
+                  "|`dest`             |`lhs`       |`rhs`   |written to     |",
+                  "|-------------------|------------|--------|---------------|",
+                  "|userdata           |any         |any     |`dest`         |",
+                  "|truthy non-userdata|userdata    |any     |`lhs`          |",
+                  "|truthy non-userdata|non-userdata|userdata|`rhs`          |",
+                  "|falsey             |userdata    |any     |a copy of `lhs`|",
+                  "|falsey             |non-userdata|userdata|a copy of `rhs`|",
+                  "",
+                  "The next six arguments dictate how the userdatas will be iterated over.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "The `read_start` and `write_start` arguments",
+                "content": [
+                  "`read_start` and `write_start` control where iteration will start for `rhs` and `lhs`, respectively. These both default to 0, which is why without these arguments, both inputs and the output operate on the same indices for each operation. Setting `read_start` to some other positive value will cause the indices being read from `rhs` to be offset by as much, and similarly for `write_start`, the indices being read from `lhs` and written to in the destination userdata will be offset.",
+                  "",
+                  "The fact that the index that is being read from `lhs` is also the one being written to in the destination userdata is worth underlining. Even with additional arguments, this correlation never changes.",
+                  "",
+                  "The operation `ud = vec(1, 2, 3):add(vec(1, 2), false, 0, 1)` will result in `ud` being populated with `1, 3, 5`. The first value is skipped, the second value is `2 + 1`, and the third value is `3 + 2`.",
+                  "",
+                  "All iteration during the call will automatically clamp to a safe range, never letting accesses go out of bounds. What this means in this case is that if the iteration would cause the `rhs` index to go out of range of `rhs`, or the `lhs` index to go out of range of either `lhs` or the destination userdata, iteration will stop. Without the `group_count` argument, this will stop the function, and return the result immediately.",
+                  "",
+                  "With just these arguments, it is possible to perform a prefix sum, or any running total operation, by writing to the same userdata that is being read in such a way that the written values will be revisited and used for a future operation.",
+                  "```lua",
+                  "local ud = userdata(\"i64\", 10)",
+                  "-- Copies 1 into every element of ud.",
+                  "ud:copy(1, true)",
+                  "-- Sums element i with element i + 1, and writes to element i + 1.",
+                  "-- i + 1 will be immediately revisited in the next iteration as i, meaning",
+                  "-- that the sum total propagates forwards with each iteration.",
+                  "ud:add(ud, true, 0, 1)",
+                  "ud:add(ud, true, 0, 1) -- Does it again.",
+                  "",
+                  "for i = 0, #ud - 1 do",
+                  "\t?ud[i] -- Prints triangle numbers up to 55.",
+                  "end",
+                  "```",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "The `group_size` argument",
+                "content": [
+                  "The `group_size` argument controls the number of consecutive elements that will be operated on. For instance, if you want to put an arbitrary section of one userdata into an equivalently sized section of another userdata, you can use `group_size` to indicate how many elements should be moved. `lhs:copy(rhs, true, 5, 2, 3)` will copy 3 consecutive elements starting from index 5 of `rhs` into `lhs` starting at index 2.",
+                  ""
+                ],
+                "children": []
+              },
+              {
+                "level": 3,
+                "text": "The `read_increment`, `write_increment` and `group_count` arguments",
+                "content": [
+                  "`read_increment`, `write_increment` and `group_count` control an additional layer of iteration. All three of these arguments default to 1. When `group_count` is greater than 1, the entire previous set of operations will happen that many times. Each time, `read_start` and `write_start` will be incremented by `read_increment` and `write_increment`. This is why `group_size` and `group_count` refer to 'groups'. These control the size and number of groups of concecutive elements that will be operated on.",
+                  "",
+                  "If you wanted to divide every other element from `lhs` with each element from `rhs`, you could do so by using a `group_size` of 1, `write_increment` of 2, and `group_count` equal to the number of elements in `rhs`. The operation would look like: `ud = lhs:div(rhs, false, 0, 0, 1, 1, 2, #rhs)`",
+                  "",
+                  "It's also possible to set `read_increment` or `write_increment` to 0, which will cause it to repeatedly index the same section of the array for each group. This is useful for broadcasting scalars and groups of values. For example, you may have a 2D userdata with 3D coordinates in each row.",
+                  "",
+                  "If you wanted to scale them by 10, and flip them on the z axis, you could do so by calling `scaled = coords:mul(vec(10, 10, -10), false, 0, 0, 3, 0, 3, coords:height())`. By setting `read_increment` to 0, each time a coordinate is done being scaled, it will start over at the begining of the `rhs` vector for every group.",
+                  "",
+                  "As a final example, if you had a 2D userdata that was 9x9, and you wanted to copy a 3x3 userdata with the top left sitting on the (2, 3) coordinate, you can take advantage of every argument to do so.",
+                  "```lua",
+                  "local bigger = userdata(\"u8\",9,9,\"1c071c0c1c0c110c11071c0c1c0c110c11101c0c1c0c110c1110110c1c0c110c111011101c0c110c11101110010c110c111011100110110c111011100110010c1110111001100100111011100110010001\")",
+                  "",
+                  "local smaller = userdata(\"u8\",3,3,\"141a141a1a1a141a14\")",
+                  "",
+                  "-- Note that because userdatas use flat indices, the element one row",
+                  "-- down from any given element is located at i + ud:width().",
+                  "bigger:copy(",
+                  "\tsmaller, -- Read from smaller",
+                  "\ttrue, -- Write to bigger.",
+                  "\t0, -- Start reading from smaller at index 0.",
+                  "\t2 + bigger:width() * 3, -- Start writing to the coordinate (2, 3) on bigger.",
+                  "\tsmaller:width(), -- Write 3 consecutive elements at a time.",
+                  "\tsmaller:width(), -- After each group, read from the next row in smaller.",
+                  "\tbigger:width(), -- After each group, write to the next row in bigger.",
+                  "\tsmaller:height() -- Write 3 rows.",
+                  ")",
+                  "",
+                  "spr(bigger) -- Draws the bigger userdata to the screen now that it's mutated.",
+                  "```",
+                  "",
+                  "This is effectively a more verbose way to implement the [`blit`](methods/blit/main.md) operation, but it demonstrates what makes these arguments flexible, and why each is useful for bulk data manipulation.",
+                  "",
+                  "The same rules about overrunning the end of the array that applies to each individual group also applies to `read_i` and `write_i`. If either exceed the end of the array, iteration will stop, and the value will be immediately returned. Note that even if an individual group overruns, this will not stop the next group from operating if `read_i` and `write_i` are still valid indices.",
+                  ""
+                ],
+                "children": []
+              }
+            ]
           },
           {
             "level": 2,
@@ -4591,83 +4627,6 @@
   },
   {
     "name": "main.md",
-    "path": "/picotron_api/userdata/methods/column/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "userdata:column(column_i): column_ud",
-        "content": [],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "Creates a new 2D userdata containing a single column from the given userdata.",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [],
-            "children": [
-              {
-                "level": 3,
-                "text": "`column_i`: integer",
-                "content": [
-                  "The index of the column to fetch.",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [],
-            "children": [
-              {
-                "level": 3,
-                "text": "`column_ud`: userdata",
-                "content": [
-                  "A 2D userdata with a width of 1 and the height and type of the original userdata.",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Example",
-            "content": [
-              "```lua",
-              "-- 01 02 03",
-              "-- 04 05 06",
-              "local ud = userdata(\"u8\", 3, 2, \"010203040506\")",
-              "local ud_w, ud_h, ud_t = ud:attribs()",
-              "",
-              "local column = ud:column(1)",
-              "local column_w, column_h, column_t = column:attribs()",
-              "",
-              "assert(column_h == ud_h)",
-              "assert(column_w == 1)",
-              "assert(column_t == ud_t)",
-              "",
-              "assert(column[0] == 2)",
-              "assert(column[1] == 5)",
-              "```"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
     "path": "/picotron_api/userdata/methods/bxor/main.md",
     "data": [
       {
@@ -4798,6 +4757,83 @@
                 "children": []
               }
             ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/userdata/methods/column/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "userdata:column(column_i): column_ud",
+        "content": [],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "Creates a new 2D userdata containing a single column from the given userdata.",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [],
+            "children": [
+              {
+                "level": 3,
+                "text": "`column_i`: integer",
+                "content": [
+                  "The index of the column to fetch.",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [],
+            "children": [
+              {
+                "level": 3,
+                "text": "`column_ud`: userdata",
+                "content": [
+                  "A 2D userdata with a width of 1 and the height and type of the original userdata.",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Example",
+            "content": [
+              "```lua",
+              "-- 01 02 03",
+              "-- 04 05 06",
+              "local ud = userdata(\"u8\", 3, 2, \"010203040506\")",
+              "local ud_w, ud_h, ud_t = ud:attribs()",
+              "",
+              "local column = ud:column(1)",
+              "local column_w, column_h, column_t = column:attribs()",
+              "",
+              "assert(column_h == ud_h)",
+              "assert(column_w == 1)",
+              "assert(column_t == ud_t)",
+              "",
+              "assert(column[0] == 2)",
+              "assert(column[1] == 5)",
+              "```"
+            ],
+            "children": []
           }
         ]
       }
@@ -5148,11 +5184,11 @@
   },
   {
     "name": "main.md",
-    "path": "/picotron_api/userdata/methods/add/main.md",
+    "path": "/picotron_api/userdata/methods/abs/main.md",
     "data": [
       {
         "level": 1,
-        "text": "add(lhs, rhs, [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count]): written",
+        "text": "abs([lhs], [rhs], [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count]): written",
         "content": [
           ""
         ],
@@ -5161,7 +5197,7 @@
             "level": 2,
             "text": "Overview",
             "content": [
-              "Adds elements on the left and right hand sides.",
+              "Gets the absolute values (magnitude) of elements in a userdata.",
               "",
               "This function uses the userdata operator signature. Read the [bulk operations](/picotron_api/userdata/readme.md/#bulk-operations) section of the userdata documentation for a detailed explanation of how the arguments work.",
               ""
@@ -5175,18 +5211,18 @@
             "children": [
               {
                 "level": 3,
-                "text": "`lhs`: [userdata](/picotron_api/userdata/readme.md)|number",
+                "text": "`[lhs]`: [userdata](/picotron_api/userdata/readme.md)|number",
                 "content": [
-                  "The left hand side of the addition operation.",
+                  "The userdata used as the input for the absolute operations.",
                   ""
                 ],
                 "children": []
               },
               {
                 "level": 3,
-                "text": "`rhs`: [userdata](/picotron_api/userdata/readme.md)|number",
+                "text": "`[rhs]`: [userdata](/picotron_api/userdata/readme.md)|number",
                 "content": [
-                  "The right hand side of the addition operation.",
+                  "Alternative source userdata. Only used if `lhs` is not a userdata.",
                   ""
                 ],
                 "children": []
@@ -5285,11 +5321,11 @@
   },
   {
     "name": "main.md",
-    "path": "/picotron_api/userdata/methods/abs/main.md",
+    "path": "/picotron_api/userdata/methods/add/main.md",
     "data": [
       {
         "level": 1,
-        "text": "abs([lhs], [rhs], [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count]): written",
+        "text": "add(lhs, rhs, [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count]): written",
         "content": [
           ""
         ],
@@ -5298,7 +5334,7 @@
             "level": 2,
             "text": "Overview",
             "content": [
-              "Gets the absolute values (magnitude) of elements in a userdata.",
+              "Adds elements on the left and right hand sides.",
               "",
               "This function uses the userdata operator signature. Read the [bulk operations](/picotron_api/userdata/readme.md/#bulk-operations) section of the userdata documentation for a detailed explanation of how the arguments work.",
               ""
@@ -5312,18 +5348,18 @@
             "children": [
               {
                 "level": 3,
-                "text": "`[lhs]`: [userdata](/picotron_api/userdata/readme.md)|number",
+                "text": "`lhs`: [userdata](/picotron_api/userdata/readme.md)|number",
                 "content": [
-                  "The userdata used as the input for the absolute operations.",
+                  "The left hand side of the addition operation.",
                   ""
                 ],
                 "children": []
               },
               {
                 "level": 3,
-                "text": "`[rhs]`: [userdata](/picotron_api/userdata/readme.md)|number",
+                "text": "`rhs`: [userdata](/picotron_api/userdata/readme.md)|number",
                 "content": [
-                  "Alternative source userdata. Only used if `lhs` is not a userdata.",
+                  "The right hand side of the addition operation.",
                   ""
                 ],
                 "children": []
@@ -6262,6 +6298,42 @@
   },
   {
     "name": "main.md",
+    "path": "/picotron_api/gui/attributes/x/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "x",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Element position along the x axis",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Values",
+            "content": [
+              "",
+              "Default value: 0",
+              "",
+              "Valid values: Any number"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
     "path": "/picotron_api/gui/attributes/y/main.md",
     "data": [
       {
@@ -6298,11 +6370,11 @@
   },
   {
     "name": "main.md",
-    "path": "/picotron_api/gui/attributes/x/main.md",
+    "path": "/picotron_api/gui/attributes/width_add/main.md",
     "data": [
       {
         "level": 1,
-        "text": "x",
+        "text": "width_add",
         "content": [
           ""
         ],
@@ -6312,7 +6384,9 @@
             "text": "Overview",
             "content": [
               "",
-              "Element position along the x axis",
+              "If [`Element.width_rel`](/picotron_api/gui/attributes/width_rel/main.md) is not nil, this value is added to the final width. ",
+              "",
+              "Otherwise, does nothing. ",
               ""
             ],
             "children": []
@@ -6324,7 +6398,7 @@
               "",
               "Default value: 0",
               "",
-              "Valid values: Any number"
+              "Valid values: any number"
             ],
             "children": []
           }
@@ -6367,44 +6441,6 @@
               "e.g:",
               "* 1 = 100% of the parent width",
               "* 0.5 means 50%"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/picotron_api/gui/attributes/width_add/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "width_add",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "If [`Element.width_rel`](/picotron_api/gui/attributes/width_rel/main.md) is not nil, this value is added to the final width. ",
-              "",
-              "Otherwise, does nothing. ",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Values",
-            "content": [
-              "",
-              "Default value: 0",
-              "",
-              "Valid values: any number"
             ],
             "children": []
           }
@@ -6491,6 +6527,30 @@
   },
   {
     "name": "main.md",
+    "path": "/picotron_api/gui/attributes/squash_to_clip/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "squash_to_clip",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Unknown"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
     "path": "/picotron_api/gui/attributes/squash_to_parent/main.md",
     "data": [
       {
@@ -6542,30 +6602,6 @@
               "Default value: nil",
               "",
               "Valid values: any number"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/picotron_api/gui/attributes/squash_to_clip/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "squash_to_clip",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "Unknown"
             ],
             "children": []
           }
@@ -6649,48 +6685,6 @@
   },
   {
     "name": "main.md",
-    "path": "/picotron_api/gui/attributes/height_rel/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "height_rel",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "Overwrites [`Element.height`](/picotron_api/gui/attributes/height/main.md) - if you want finer control over the final height, use [`Element.height_add`](/picotron_api/gui/attributes/height_add/main.md) or [`Element.min_height`](/picotron_api/gui/attributes/min_height/main.md).",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Values",
-            "content": [
-              "",
-              "Default value: nil",
-              "",
-              "Valid values: nil, number between 0 and 1",
-              "",
-              "If not nil, automatically adjusts element height based on [`parent.height`](/picotron_api/gui/attributes/height/main.md) as a decimal (the percentage / 100)",
-              "",
-              "e.g:",
-              "* 1 = 100% of the parent height",
-              "* 0.5 means 50%"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
     "path": "/picotron_api/gui/attributes/height_add/main.md",
     "data": [
       {
@@ -6716,44 +6710,6 @@
             "level": 2,
             "text": "Values",
             "content": [
-              "",
-              "Default value: nil",
-              "",
-              "Valid values: any number"
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
-    "path": "/picotron_api/gui/attributes/height/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "height",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "Height of the element",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Values",
-            "content": [
-              "",
-              "Must be set to a number if [`height_rel`](/picotron_api/gui/attributes/height_rel/main.md) is not used.",
               "",
               "Default value: nil",
               "",
@@ -6803,6 +6759,86 @@
                 "children": []
               }
             ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/gui/attributes/height_rel/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "height_rel",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Overwrites [`Element.height`](/picotron_api/gui/attributes/height/main.md) - if you want finer control over the final height, use [`Element.height_add`](/picotron_api/gui/attributes/height_add/main.md) or [`Element.min_height`](/picotron_api/gui/attributes/min_height/main.md).",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Values",
+            "content": [
+              "",
+              "Default value: nil",
+              "",
+              "Valid values: nil, number between 0 and 1",
+              "",
+              "If not nil, automatically adjusts element height based on [`parent.height`](/picotron_api/gui/attributes/height/main.md) as a decimal (the percentage / 100)",
+              "",
+              "e.g:",
+              "* 1 = 100% of the parent height",
+              "* 0.5 means 50%"
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/gui/attributes/height/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "height",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Height of the element",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Values",
+            "content": [
+              "",
+              "Must be set to a number if [`height_rel`](/picotron_api/gui/attributes/height_rel/main.md) is not used.",
+              "",
+              "Default value: nil",
+              "",
+              "Valid values: any number"
+            ],
+            "children": []
           }
         ]
       }
@@ -7111,34 +7147,6 @@
   },
   {
     "name": "main.md",
-    "path": "/picotron_api/gui/attachments/attach_pulldown/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "el:attach_pulldown()",
-        "content": [
-          ""
-        ],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "",
-              "Attaches a pulldown to the element",
-              "",
-              "Source: [source.lua](source.lua)",
-              "",
-              "Details unknown."
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
     "path": "/picotron_api/gui/attachments/attach_field/main.md",
     "data": [
       {
@@ -7238,6 +7246,34 @@
                 "children": []
               }
             ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/gui/attachments/attach_pulldown/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "el:attach_pulldown()",
+        "content": [
+          ""
+        ],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "",
+              "Attaches a pulldown to the element",
+              "",
+              "Source: [source.lua](source.lua)",
+              "",
+              "Details unknown."
+            ],
+            "children": []
           }
         ]
       }
@@ -7794,75 +7830,6 @@
   },
   {
     "name": "main.md",
-    "path": "/picotron_api/functions/vec/main.md",
-    "data": [
-      {
-        "level": 1,
-        "text": "vec(...): ud",
-        "content": [],
-        "children": [
-          {
-            "level": 2,
-            "text": "Overview",
-            "content": [
-              "The vec function is one of two ways to create a new userdata from scratch, with the other being the [userdata](picotron_api/functions/userdata/main.md) function.",
-              "Produces a new f64 typed 1D [userdata](/picotron_api/userdata/readme.md) populated with each of the arguments.",
-              ""
-            ],
-            "children": []
-          },
-          {
-            "level": 2,
-            "text": "Arguments",
-            "content": [],
-            "children": [
-              {
-                "level": 3,
-                "text": "`...`: number|nil",
-                "content": [
-                  "Each value to populate the userdata with. The number of arguments dictates the width of the produced userdata. Defaults to 0.",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Returns",
-            "content": [],
-            "children": [
-              {
-                "level": 3,
-                "text": "`ud`: [userdata](/picotron_api/userdata/readme.md)|nil",
-                "content": [
-                  "The userdata produced, or nil if no arguments were provided.",
-                  ""
-                ],
-                "children": []
-              }
-            ]
-          },
-          {
-            "level": 2,
-            "text": "Example",
-            "content": [
-              "```lua",
-              "local position = vec(12, 19)",
-              "",
-              "?position:get(0) -- 12",
-              "?position:get(1) -- 19",
-              "```",
-              ""
-            ],
-            "children": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "main.md",
     "path": "/picotron_api/functions/userdata/main.md",
     "data": [
       {
@@ -8055,6 +8022,75 @@
               "?ud:get(1) -- 13",
               "?ud:get(2) -- 21",
               "?ud:get(3) -- 34",
+              "```",
+              ""
+            ],
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "main.md",
+    "path": "/picotron_api/functions/vec/main.md",
+    "data": [
+      {
+        "level": 1,
+        "text": "vec(...): ud",
+        "content": [],
+        "children": [
+          {
+            "level": 2,
+            "text": "Overview",
+            "content": [
+              "The vec function is one of two ways to create a new userdata from scratch, with the other being the [userdata](picotron_api/functions/userdata/main.md) function.",
+              "Produces a new f64 typed 1D [userdata](/picotron_api/userdata/readme.md) populated with each of the arguments.",
+              ""
+            ],
+            "children": []
+          },
+          {
+            "level": 2,
+            "text": "Arguments",
+            "content": [],
+            "children": [
+              {
+                "level": 3,
+                "text": "`...`: number|nil",
+                "content": [
+                  "Each value to populate the userdata with. The number of arguments dictates the width of the produced userdata. Defaults to 0.",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Returns",
+            "content": [],
+            "children": [
+              {
+                "level": 3,
+                "text": "`ud`: [userdata](/picotron_api/userdata/readme.md)|nil",
+                "content": [
+                  "The userdata produced, or nil if no arguments were provided.",
+                  ""
+                ],
+                "children": []
+              }
+            ]
+          },
+          {
+            "level": 2,
+            "text": "Example",
+            "content": [
+              "```lua",
+              "local position = vec(12, 19)",
+              "",
+              "?position:get(0) -- 12",
+              "?position:get(1) -- 19",
               "```",
               ""
             ],
