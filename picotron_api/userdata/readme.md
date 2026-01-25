@@ -3,7 +3,7 @@
 ## Overview
 A userdata is a specialized array type that contains numeric values, and is optimized for bulk operations. Because of this, they are an essential tool for optimizing code in Picotron.
 
-Userdatas are especially useful for representing large amounts of numerical data in a manner that's easy to manipulate and copy. They are also a pragmatic way to do operations based in linear algebra, and have a dedicated set of vector/matrix-specific methods, such as [`magnitude()`](methods/magnitude/main.md), [`cross()`](methods/cross/main.md) and [`matmul()`](methods/magnitude/main.md).
+Userdatas are especially useful for representing large amounts of numerical data in a manner that's easy to manipulate and copy. They are also a pragmatic way to do operations based in linear algebra, and have a dedicated set of vector/matrix-specific methods, such as [`magnitude()`](methods/magnitude/main.md), [`cross()`](methods/cross/main.md) and [`matmul()`](methods/matmul/main.md).
 
 Userdatas are a reference type. You can have multiple variables pointing to the same userdata. Many of userdata's methods and operators create and return new userdatas by default, rather than mutating the existing userdata, but unlike a string, they are still mutable by certain operations. You can create a new copy of a userdata by calling its [`copy()`](methods/copy/main.md) method with no arguments.
 
@@ -12,7 +12,7 @@ Userdatas are not resizable once created. However, most of the time the actual e
 
 - From scratch, using the [`userdata()`](/picotron_api/functions/userdata/main.md) or [`vec()`](/picotron_api/functions/vec/main.md) functions.
 - When using an operator on an existing userdata.
-- By calling an [operation](#bulk-operations) function when the `target` argument is falsey.
+- By calling an [operation](#bulk-operations) function when the `dest` argument is falsey.
 
 ## Numerical types
 Every userdata is an array containing one of the following numerical types:
@@ -28,7 +28,7 @@ If any operation on an integer typed userdata, including setting an element expl
 ## Indexing
 You can fetch the total number of elements in a userdata by using the [`#`](metamethods/__len/main.md) operator, much like you would for a table array. For the number of rows or columns, you can use the [`height()`](methods/height/main.md), [`width()`](methods/width/main.md), or [`attribs()`](methods/attribs/main.md) methods.
 
-2D userdatas are laid out contiguously in memory. The first row in its entirety is followed by the second, then the third, and so on, in lexicographical order. In other words, 2D userdatas have flat indices.
+2D userdatas, as arrays, are completely flat, as opposed to being a nested structure of arrays within arrays. Every element is somewhere in one contiguous set of indices. 2D userdatas are row-major, meaning that the elements in each row are stored consecutively, and each of those rows is stored in width-sized chunks. The indices in the userdata are traversed in lexicographical order.
 
 There are two ways to index a userdata. You can do it the same way you would for a table, by using the [`[i]`](metamethods/__index/main.md) syntax. You can also call the [`get()`](methods/get/main.md) method, which will allow you to use row and column indices instead of a flat index.
 
@@ -117,6 +117,7 @@ Two-op:
 
 The signature for these methods is `ud = lhs:op([rhs], [dest], [read_start], [write_start], [group_size], [read_increment], [write_increment], [group_count])`, but to build robust knowledge, this section will start with the most basic usage and gradually add additional features from each of the arguments.
 
+### The `lhs` and `rhs` arguments
 For the one-op methods, the `rhs` argument is completely ignored, unless `lhs` is not a userdata. Without any arguments this will just apply the operation to every element in the userdata. `ud = lhs:abs()` will create a userdata `ud` which is identical to `lhs`, except every value will be absolute instead of signed.
 
 For the two-op methods, `rhs` is required, and will be applied just like the respective instruction the operation is named after. `ud = lhs:div(rhs)` will produce a userdata `ud` which is identical to `lhs`, except each element will be divided by the element in `rhs` which shares the same index. `ud = vec(1, 2):div(vec(2, 3))` will produce a userdata with the elements in index 0 and 1 being 1/2 and 2/3, respectively.
@@ -125,6 +126,7 @@ Either `lhs` or `rhs` can be a scalar value, which will be broadcast to every el
 
 Userdatas have their operators aliased to these two-op methods, so `vec(1, 2):div(vec(2, 3))` is exactly equivalent to `vec(1, 2) / vec(2, 3)`. This will allow you to use scalar values for `lhs` easily, since `rhs` will get the call with the relevant operands. For example, you can get a userdata of reciprocals through the expression `ud = 1 / vec(2, 3)`.
 
+### The `dest` argument
 `dest` controls which userdata the resulting values should be written to. If `dest` is falsey, a copy of `lhs` will be created, and the values will be written to that. If `dest` is a userdata, then the values will be written into that userdata. If `dest` is some other truthy value, then the values will be written directly to `lhs`. In every case, the userdata that was written to will be returned.
 
 ```lua
@@ -153,6 +155,7 @@ Below is a reference table for the behavior of `dest`.
 
 The next six arguments dictate how the userdatas will be iterated over.
 
+### The `read_start` and `write_start` arguments
 `read_start` and `write_start` control where iteration will start for `rhs` and `lhs`, respectively. These both default to 0, which is why without these arguments, both inputs and the output operate on the same indices for each operation. Setting `read_start` to some other positive value will cause the indices being read from `rhs` to be offset by as much, and similarly for `write_start`, the indices being read from `lhs` and written to in the destination userdata will be offset.
 
 The fact that the index that is being read from `lhs` is also the one being written to in the destination userdata is worth underlining. Even with additional arguments, this correlation never changes.
@@ -177,8 +180,10 @@ for i = 0, #ud - 1 do
 end
 ```
 
+### The `group_size` argument
 The `group_size` argument controls the number of consecutive elements that will be operated on. For instance, if you want to put an arbitrary section of one userdata into an equivalently sized section of another userdata, you can use `group_size` to indicate how many elements should be moved. `lhs:copy(rhs, true, 5, 2, 3)` will copy 3 consecutive elements starting from index 5 of `rhs` into `lhs` starting at index 2.
 
+### The `read_increment`, `write_increment` and `group_count` arguments
 `read_increment`, `write_increment` and `group_count` control an additional layer of iteration. All three of these arguments default to 1. When `group_count` is greater than 1, the entire previous set of operations will happen that many times. Each time, `read_start` and `write_start` will be incremented by `read_increment` and `write_increment`. This is why `group_size` and `group_count` refer to 'groups'. These control the size and number of groups of concecutive elements that will be operated on.
 
 If you wanted to divide every other element from `lhs` with each element from `rhs`, you could do so by using a `group_size` of 1, `write_increment` of 2, and `group_count` equal to the number of elements in `rhs`. The operation would look like: `ud = lhs:div(rhs, false, 0, 0, 1, 1, 2, #rhs)`
