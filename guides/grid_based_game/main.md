@@ -1,5 +1,7 @@
 # Simple grid based game
 
+## Overview
+
 This is a short guide designed to teach you to create a simple game on a grid.
 
 ## Step 1. Creating the sprites
