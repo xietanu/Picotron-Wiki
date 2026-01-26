@@ -19,14 +19,25 @@ save /where/to/store/the/wiki/cart.p64
 
 Development - Astralsparv
 Lilwide font - thelxinoe5
+Word Wrapping algorithm - abledbody
+Bug Testing - lumpycamel123
+
+## Features!
+
+Go through the *entire* wiki through the database.
+
+Includes basic markdown support
+
+Allows you to copy paste code snippets from codeblocks
+
+Codeblocks are auto-syntaxed
+
+Clickable hyperlinks
+
+Ability to open hyperlinks & pages in the host os by middle clicking (or CTRL clicking) them!
+
 
 ## To Do / Issues
-
-You cannot click links
-
-Text wrapping is based on characters rather than words
-
-Text wrapping doesn't seem to be using the full width that is given
 
 Some markdown formatting isn't correct (I think this comes from the pod db treating the md codeblock headers as real headers, seen in `documenting.md`)
 
@@ -37,4 +48,4 @@ Custom themes:
 
 There's no variation between headers, they are all lilwide.
 
-Codeblocks aren't proper codeblocks nor do they have syntax - likely that they'll have to be handled seperately to normal prints.
+No scrollbar & no max scroll
