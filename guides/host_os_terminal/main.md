@@ -1,5 +1,7 @@
 # Using a Host OS terminal in Picotron
 
+## Overview
+
 This is a short guide designed to show you how to setup an environment to use [`printh`](/picotron_api/functions/printh/main.md) for debugging or logging.
 
 ## Windows:
