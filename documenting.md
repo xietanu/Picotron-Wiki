@@ -71,4 +71,13 @@ If there's another overload for the function or method, it can go after each of 
 
 Open the [ripper](https://astralsparv.github.io/Picotron-Wiki/ripper/) page & simply drag and drop the Picotron-Wiki folder.
 
-Download the file and replace /docs/db.json with it (in the repository).
+Select `rip` to rip the docs in the JSON format.
+
+Select `pod` to rip the docs in the POD format.
+
+Replace the old db files with these files in `/docs/db/`.
+
+This should be in the structure of`/docs/db/..`:
+* `..db.json`
+* `..db.pod`
+* `..minidb.pod`
