@@ -36,15 +36,17 @@ Clickable hyperlinks
 
 Ability to open hyperlinks & pages in the host os by middle clicking (or CTRL clicking) them!
 
+Touchscreen/drag-based scrolling
+
+One click easy updating
+
+Custom themes (colors in hex and fonts)
 
 ## To Do / Issues
 
 Some markdown formatting isn't correct (I think this comes from the pod db treating the md codeblock headers as real headers, seen in `documenting.md`)
 
-Custom themes:
-
-* Colors
-* Fonts
+`link.md/#header` doesn't work
 
 There's no variation between headers, they are all lilwide.
 
