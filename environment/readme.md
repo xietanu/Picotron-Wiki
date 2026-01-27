@@ -12,20 +12,20 @@ Documentation on the Picotron environment/ecosystem
 
 ## Miscellaneous
 
-[Capturing GIFs](`/environment/gif/main.md`)
+[Capturing GIFs](/environment/gif/main.md)
 
-[Capturing Screenshots](`/environment/screenshot/main.md`)
+[Capturing Screenshots](/environment/screenshot/main.md)
 
-[Reload](`/environment/reload/main.md`)
+[Reload](/environment/reload/main.md)
 
-[Saving](`/environment/save/main.md`)
+[Saving](/environment/save/main.md)
 
-[Workspaces](`/environment/workspaces/main.md`)
+[Workspaces](/environment/workspaces/main.md)
 
-[Pausing](`/environment/pause/main.md`)
+[Pausing](/environment/pause/main.md)
 
-[Host OS](`/environment/host_os/main.md`)
+[Host OS](/environment/host_os/main.md)
 
-[Fast Quit](`/environment/fast_quit/main.md`)
+[Fast Quit](/environment/fast_quit/main.md)
 
-[Anywhen](`/environment/anywhen/main.md`)
+[Anywhen](/environment/anywhen/main.md)
