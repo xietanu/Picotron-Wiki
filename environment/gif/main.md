@@ -12,7 +12,7 @@ To start capturing a gif, you can press `CTRL+8`, this will begin recording the 
 
 ### Ending a recording
 
-The gif will automatically end recording at a certain point.
+The gif will automatically end recording at a certain point or can be manually ended with `CTRL+9`.
 
 ### Settings a recording area
 
