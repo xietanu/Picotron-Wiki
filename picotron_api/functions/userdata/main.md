@@ -1,6 +1,6 @@
 # userdata(type, width, height, [data]): ud
 ## Overview
-The userdata function is one of two ways to create a new userdata from scratch, with the other being the [vec](picotron_api/functions/vec/main.md) function.
+The userdata function is one of two ways to create a new userdata from scratch, with the other being the [vec](/picotron_api/functions/vec/main.md) function.
 Produces a new 2D [userdata](/picotron_api/userdata/readme.md) with a specified type and size. 2D userdatas with a height of 1 are not the same as 1D userdatas, and will cause certain functions, such as [`get`](/picotron_api/userdata/methods/get/main.md) and [`set`](/picotron_api/userdata/methods/set/main.md), to behave differently.
 
 ## Arguments
@@ -43,7 +43,7 @@ local ud = userdata("u8", 2, 2, "080D1522")
 
 # userdata(type, width, [data]): ud
 ## Overview
-The userdata function is one of two ways to create a new userdata from scratch, with the other being the [vec](picotron_api/functions/vec/main.md) function.
+The userdata function is one of two ways to create a new userdata from scratch, with the other being the [vec](/picotron_api/functions/vec/main.md) function.
 Produces a new 1D [userdata](/picotron_api/userdata/readme.md) with a specified type and size. 1D userdatas are not the same as 2D userdatas with a height of 1, and will cause certain functions, such as [`get`](/picotron_api/userdata/methods/get/main.md) and [`set`](/picotron_api/userdata/methods/set/main.md), to behave differently.
 
 ## Arguments
