@@ -10,6 +10,14 @@ Documentation on the Picotron environment/ecosystem
 
 [Keybinds](/environment/keybinds/readme.md)
 
+## Workspaces
+
+[Code Editor](code_editor/readme.md)
+
+[GFX Editor](gfx_editor/readme.md)
+
+[SFX Editor](sfx_editor/readme.md)
+
 ## Miscellaneous
 
 [Capturing GIFs](/environment/gif/main.md)

@@ -21,3 +21,5 @@ Guides for development in Picotron
 [Keyboard Layout](/guides/keyboard_layout/main.md)
 
 [Terminal Commands](/guides/terminal_commands/main.md)
+
+[External Editors](/guides/external_editors/main.md)
